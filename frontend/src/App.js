@@ -1,10 +1,8 @@
-import TestConnection  from './components/TestConnection.js';
-import './App.css';
-
+import LoginForm from './components/loginComponent/LoginForm';
 function App() {
   return (
-    <div className="App">
-      <TestConnection />
+    <div>
+      <LoginForm />
     </div>
   );
 }
