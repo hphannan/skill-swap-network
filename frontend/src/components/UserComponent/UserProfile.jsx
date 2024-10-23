@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './UserProfile.css';
+import './UserProfile.css'; // Keep using the CSS file directly
 
 const UserProfile = () => {
   
@@ -35,46 +35,54 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="user-profile">
-      <h1>User Profile</h1>
-      
-      {/* Displaying username */}
-      <div className="profile-section">
-        <h2>Username: {user.username}</h2>
-      </div>
+    <div className="user-profile-container">
+      <div className="user-profile">
+        <h1 className="title">User Profile</h1>
+        
+        {/* Displaying username */}
+        <div className="profile-section">
+          <h2 className="subtitle">Username: {user.username}</h2>
+        </div>
 
-      {/* Displaying and updating skills offered */}
-      <div className="profile-section">
-        <h3>Skills Offered:</h3>
-        <ul>
-          {user.skillsOffered.map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
-        <input 
-          type="text" 
-          placeholder="Add a skill you're offering" 
-          value={newSkillOffered} 
-          onChange={(e) => setNewSkillOffered(e.target.value)}
-        />
-        <button onClick={addSkillOffered}>Add Skill</button>
-      </div>
+        {/* Displaying and updating skills offered */}
+        <div className="profile-section">
+          <h3 className="section-title">Skills Offered:</h3>
+          <ul className="skill-list">
+            {user.skillsOffered.map((skill, index) => (
+              <li key={index} className="skill-item">{skill}</li>
+            ))}
+          </ul>
+          <div className="input-group">
+            <input 
+              type="text" 
+              placeholder="Add a skill you're offering" 
+              value={newSkillOffered} 
+              onChange={(e) => setNewSkillOffered(e.target.value)}
+              className="input-field"
+            />
+            <button onClick={addSkillOffered} className="add-button">Add Skill</button>
+          </div>
+        </div>
 
-      {/* Displaying and updating skills needed */}
-      <div className="profile-section">
-        <h3>Skills Needed:</h3>
-        <ul>
-          {user.skillsNeeded.map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
-        <input 
-          type="text" 
-          placeholder="Add a skill you need" 
-          value={newSkillNeeded} 
-          onChange={(e) => setNewSkillNeeded(e.target.value)}
-        />
-        <button onClick={addSkillNeeded}>Add Skill</button>
+        {/* Displaying and updating skills needed */}
+        <div className="profile-section">
+          <h3 className="section-title">Skills Needed:</h3>
+          <ul className="skill-list">
+            {user.skillsNeeded.map((skill, index) => (
+              <li key={index} className="skill-item">{skill}</li>
+            ))}
+          </ul>
+          <div className="input-group">
+            <input 
+              type="text" 
+              placeholder="Add a skill you need" 
+              value={newSkillNeeded} 
+              onChange={(e) => setNewSkillNeeded(e.target.value)}
+              className="input-field"
+            />
+            <button onClick={addSkillNeeded} className="add-button">Add Skill</button>
+          </div>
+        </div>
       </div>
     </div>
   );
