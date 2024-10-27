@@ -1,11 +1,21 @@
+
 const express = require('express');
-const testRoute = require('./routes/testRoutes.js')
+const connectDB = require('./config/db.js')
+const UserModel = require('./models/User.js')
+const authRoute = require('./routes/authRoutes.js')
 const app = express();
+
+
+//Middleware
+app.use(express.json());
+
+connectDB();
 
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
-app.use('/api', testRoute);
+
+app.use('/api', authRoute);
 
 const PORT = process.env.PORT || 5000;
 
