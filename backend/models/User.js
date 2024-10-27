@@ -7,6 +7,5 @@ const UserSchema = new mongoose.Schema({
     skills: { type: [String], default: [] }
 });
 
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+// Export the User modelnp
+module.exports = mongoose.model('User', UserSchema);
