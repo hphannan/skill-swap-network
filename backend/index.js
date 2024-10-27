@@ -1,14 +1,14 @@
 
 const express = require('express');
 const connectDB = require('./config/db.js')
-const UserModel = require('./models/User.js')
 const authRoute = require('./routes/authRoutes.js')
+const cors = require('cors');
 const app = express();
-
 
 //Middleware
 app.use(express.json());
 
+app.use(cors());
 connectDB();
 
 app.get('/', (req, res) => {
