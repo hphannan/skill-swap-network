@@ -1,11 +1,13 @@
 const express = require('express');
-const connectDB = require('./config/db');
 const skillRoutes = require('./routes/skillRoutes');
 const authRoutes = require('./routes/authRoutes');
+const cors = require('cors');
+const connectDB = require('./config/db');
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Database connection
 connectDB();
