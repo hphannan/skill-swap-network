@@ -1,0 +1,40 @@
+/* SkillDetailPage.css */
+.skill-detail-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .skill-info {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .user-info, .exchange-request {
+    margin-top: 20px;
+  }
+  
+  .request-message {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .request-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .request-button:hover {
+    background-color: #0056b3;
+  }
+  

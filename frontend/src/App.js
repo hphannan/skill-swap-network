@@ -5,6 +5,7 @@ import LoginForm from './components/loginComponent/LoginForm';
 import UserComponent from './components/UserComponent/UserProfile';
 import SkillsTrade from './components/Skill_ListingsComponent/SkillsTradePage';
 import Functionality from './components/functionalityComponent/SkillsPage';
+import SkillDetail from './components/SkillDetailComponent/SkillDetailPage';
 function App() {
   return (
     <Router>
@@ -16,6 +17,8 @@ function App() {
           <Route path="/user/profile" element={<UserComponent />} />
           <Route path="/skill-listner" element={<SkillsTrade />} />
           <Route path="/search-functionality " element={<Functionality />} />
+          <Route path="/detail " element={<SkillDetail/>} />
+       
         </Routes>
       </div>
     </Router>
