@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'; // Import Link for navigation
 
 const LoginForm = () => {
   return (
-    <div className="auth-container">
+    <div className='back'>
+         <div className="auth-container">
       <div className="form-box login">
         <form>
           <h1>Login</h1>
@@ -32,6 +33,7 @@ const LoginForm = () => {
         </form>
       </div>
     </div>
+    </div> 
   );
 }
 

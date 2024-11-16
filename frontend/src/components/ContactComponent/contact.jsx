@@ -1,18 +1,22 @@
 import React from 'react'
-
+import './contact.css';
 const contact = () => {
   return (
     <div>
     
     <div class="con_banner">
         <div class="con_navbar">
-        <img src="images/14-removebg-preview.png" class="logo" />
+        <img src="/images/logo.png" alt="Logo" className="logo" />
         <ul>
-            <li> <a href="home.html">Home</a></li>
-            <li> <a href="about.html">About</a></li>
-            <li> <a class="active" href="blog.html">Blog </a></li>
-            <li> <a href="course.html">Cources</a></li>
-            <li> <a href="contact.html">Contact us</a></li>
+        
+        <li> <a class="active" href="home">Home</a></li>
+            <li> <a href="">Skill swaps</a></li>
+            <li> <a href="">create skill listening</a></li>
+            <li> <a href="about">about us </a></li>
+            <li> <a href=""> suggested people</a></li>   
+            <li> <a class="active" href="contact">Contact us</a></li>
+            <li> <a href="/user/profile">Profile</a></li>
+            <li> <a href="login">Login/signup</a></li>
            
         </ul>
         </div>
@@ -44,6 +48,7 @@ const contact = () => {
                         <span>Website:</span> <a href="#">eduquest@gmail.com</a>
                     </li>
                 </ul>
+                
                 <ul class="social-icons">
                     <li><a href="#"><i class="fab fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -79,12 +84,7 @@ const contact = () => {
     
 </section>
 
-<section id=" map ">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14160500.
-    976518312!2d58.34766447892951!3d29.946261381554677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-    1!3m3!1m2!1s0x38db52d2f8fd751f%3A0x46b7a1f7e614925c!2sPakistan!5e0!3m2!1sen!2s!4v1699347248917
-    !5m2!1sen!2s" height="100%" width="100%" style="border:0;"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</section>
+
 <br/>
 <footer>
     <div class="footer-col">

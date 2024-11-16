@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import RegistrationForm from './components/RegistrationComponent/RegistrationForm';
 import LoginForm from './components/loginComponent/LoginForm'; 
 import UserComponent from './components/UserComponent/UserProfile';
@@ -7,6 +8,14 @@ import UserComponent from './components/UserComponent/UserProfile';
 import SkillsTrade from './components/Skill_ListingsComponent/SkillsTradePage';
 import Functionality from './components/functionalityComponent/SkillsPage';
 import SkillDetail from './components/SkillDetailComponent/SkillDetailPage';
+
+import Home from './components/HomeComponent/Dashboard';
+import About from './components/AboutComponent/About';
+import ContactUs from './components/ContactComponent/contact';
+
+import MySkills from './components/MySkilComponent/MySkills';
+
+
 
 
 function App() {
@@ -22,7 +31,13 @@ function App() {
           <Route path="/skill-listner" element={<SkillsTrade />} />
           <Route path="/search-functionality " element={<Functionality />} />
           <Route path="/detail " element={<SkillDetail/>} />
-      
+          
+          <Route path="/home" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<ContactUs/>} />
+          
+          <Route path="/skill" element={<MySkills/>} />
+
        
         </Routes>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import './About.module.css';
 
 const About = () => {
   return (
@@ -6,13 +7,16 @@ const About = () => {
       
      <div class="a_banner">
         <div class="a_navbar">
-        <img src="images/14-removebg-preview.png" class="logo" />
+        <img src="/images/logo.png" alt="Logo" className="logo" />
         <ul>
-            <li> <a href="home.html">Home</a></li>
-            <li> <a class="active" href="about.html">About</a></li>
-            <li> <a href="blog.html">Blog </a></li>
-            <li> <a href="course.html">Cources</a></li>
-            <li> <a  href="contact.html">Contact us</a></li>
+        <li> <a  href="home">Home</a></li>
+            <li> <a href="">Skill swaps</a></li>
+            <li> <a href="">create skill listening</a></li>
+            <li> <a class="active" href="about">about us </a></li>
+            <li> <a href=""> suggested people</a></li>   
+            <li> <a href="contact">Contact us</a></li>
+            <li> <a href="/user/profile">Profile</a></li>
+            <li> <a href="login">Login/signup</a></li>
            
         </ul>
         </div>

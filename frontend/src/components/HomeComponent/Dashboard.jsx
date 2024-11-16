@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import RequestCard from './RequestCard';
+import React, { Component } from 'react';
+import { GiCash } from "react-icons/gi";
+import { FcCollaboration } from "react-icons/fc";
+import { VscWorkspaceTrusted } from "react-icons/vsc";
 import './Dashboard.css';
 
 const Dashboard = () => {
-   
-
-    return (
-     <div class="all">
+  return (
+    <div >
             <div class="banner">
                 <div class="navbar">
-              <img src="WhatsApp Image 2024-10-17 at 17.15.45_edfb4c47.jpg" class="logo" />
+              <img src="/images/logo.png" alt="Logo" className="logo" />
         
             <ul>
-            <li> <a class="active" href="home.html">Home</a></li>
-            <li> <a href="about.html">Skill swaps</a></li>
-            <li> <a href="about.html">create skill listening</a></li>
-            <li> <a href="about.html">my skills</a></li>
-            <li> <a href="about.html"> suggested people</a></li>   
-            <li> <a href="contact.html">Contact us</a></li>
-            <li> <a href="about.html">Profile</a></li>
-            <li> <a href="about.html">Login/signup</a></li>
+            <li> <a class="active" href="home">Home</a></li>
+            <li> <a href="">Skill swaps</a></li>
+            <li> <a href="create">create skill listening</a></li>
+            <li> <a href="about">about us </a></li>
+            <li> <a href=""> suggested people</a></li>   
+            <li> <a href="contact">Contact us</a></li>
+            <li> <a href="/user/profile">Profile</a></li>
+            <li> <a href="login">Login/signup</a></li>
         
            </ul>
            </div>
@@ -30,7 +30,7 @@ const Dashboard = () => {
            <p> Subcribe Easy Totorials YouYube Channel to Watch more Videos, press 
             the bell icon to get latest updates.  </p>
              <div>
-            <button type="button"><span></span>ABOUT US</button>
+             <button type="button" href="skill"><span></span>My Skills</button>
             <button type="button"><span></span>SKILL DETAIL</button>
              </div> </div>
            </div>
@@ -41,28 +41,40 @@ const Dashboard = () => {
         <p>Replenish man have thing gathering lights yielding shall you </p>
         <div class="fea-base">
            <div class="fea-box">
-            <i class="fas fa-graduation-cap"></i>
+            <br/>
+           <GiCash className="icon"/>
+           <br/>
+           
              <h3>Cashless System</h3>
              <p>One make creepeth, man bearing theira firmament won't great heaven</p>
-             
+             <br/>
            </div>
         
-            <div class="fea-box">
-                <i class="fas fa-certificate"></i>
-                <h3>Foster collaboration</h3>
-             <p>One make creepeth, man bearing theira firmament won't great heaven</p>
-             
-            </div>
+           <div class="fea-box">
+            <br/>
+            <FcCollaboration className="icon"/>
+           <br/>
+           
+           <h3>Foster collaboration</h3>
+           <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+             <br/>
+           </div>
             
-            <div class="fea-box">
-                <i class="fas fa-award"></i>
-                <h3>Trusted Community</h3>
-                <p>One make creepeth, man bearing theira firmament won't great heaven</p>
-                
-            </div>
+           <div class="fea-box">
+            <br/>
+            <VscWorkspaceTrusted className="icon" />
+           <br/>
+           
+           <h3>Trusted Community</h3>
+           <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+             <br/>
+           </div>
         </div>
+        <br/>
+        <br/>
   </section>
-
+<br/>
+<br/>
          
   <section id="course">
         <h1>Our Popular Skills</h1>
@@ -74,7 +86,7 @@ const Dashboard = () => {
         <div class="course-box">
 
             <div class="courses">
-                <img src="" alt=""/>
+            <img src='' />
                 <div class="details">
                       <span>Updated 21/8/21</span>
                       <h6>JavaScript Beginners Course</h6>
@@ -167,14 +179,16 @@ const Dashboard = () => {
                     <span>(239)</span>
                  </div>
             </div>
+            
                  
         </div>
      
-
-      
         </div>
+        <br/>
+        <br/>
     </section>
-
+<br/>
+<br/>
     <section id="registration">
         <div class="reminder">
             <p>Get 100 online skills for free</p>
@@ -201,6 +215,8 @@ const Dashboard = () => {
                     <a class="yellow" href="#">Submit</a>  
                 </div>
         </div>
+        <br/>
+        <br/>
 </section>
 
 <br/>
@@ -218,7 +234,7 @@ const Dashboard = () => {
         <p>Replenish man have thing gathering lights yielding shall you </p>
         <div class="expert-box">
             <div class="profile">
-                <img src="images/pro1.webp" alt=""/>
+                <img src="" alt=""/>
                 <h6>Ema Irnik</h6>
                 <p>Python & Algorithm Expert</p>
                 <div class="pro-links">
@@ -228,7 +244,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div class="profile">
-                <img src="images/pro2.webp" alt=""/>
+                <img src="" alt=""/>
                 <h6>Ema Irnik</h6>
                 <p>Python & Algorithm Expert</p>
                 <div class="pro-links">
@@ -238,7 +254,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div class="profile">
-                <img src="images/pro3.webp" alt=""/>
+                <img src="" alt=""/>
                 <h6>Ema Irnik</h6>
                 <p>Python & Algorithm Expert</p>
                 <div class="pro-links">
@@ -248,7 +264,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div class="profile">
-                <img src="images/pro4.webp" alt=""/>
+                <img src="" alt=""/>
                 <h6>Ema Irnik</h6>
                 <p>Python & Algorithm Expert</p>
                 <div class="pro-links">
@@ -311,7 +327,7 @@ const Dashboard = () => {
                 </footer>
         </div>
 
-    );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
