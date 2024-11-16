@@ -27,18 +27,13 @@ function App() {
           <Route path="/register" element={<RegistrationForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/user/profile" element={<UserComponent />} />
-
-          <Route path="/skill-listner" element={<SkillsTrade />} />
+          <Route path="/skill-listings" element={<SkillsTrade />} />
           <Route path="/search-functionality " element={<Functionality />} />
-          <Route path="/detail " element={<SkillDetail/>} />
-          
+          <Route path="/skill-detail " element={<SkillDetail/>} />        
           <Route path="/home" element={<Home/>} />
           <Route path="/about" element={<About/>} />
-          <Route path="/contact" element={<ContactUs/>} />
-          
-          <Route path="/skill" element={<MySkills/>} />
-
-       
+          <Route path="/contact" element={<ContactUs/>} />          
+          <Route path="/skill" element={<MySkills/>} />       
         </Routes>
       </div>
     </Router>
