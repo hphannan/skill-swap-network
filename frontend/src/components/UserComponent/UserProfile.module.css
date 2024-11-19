@@ -1,0 +1,142 @@
+/* src/components/UserProfile.css */
+.user_profile_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw; /* Full screen width */
+  background-color:url(../pngtree-ethereal-technology-abstract-dark-blue-background-with-textured-lines-image_13883332.png);
+  padding: 0 20px; /* Adding padding to the sides for better spacing */
+  box-sizing: border-box; /* Ensure padding doesn't affect width calculation */
+}
+
+.user_profile {
+  background-color: #ffffff;
+  padding: 30px;
+ 
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 40%; /* Make it take full width */
+  max-width: 1200px; /* Set a max-width for larger screens */
+
+  position: relative;
+ color:white;
+  height: 90%;
+  background: transparent;
+  border: 2px solid rgba(255,255,255, .1);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  align-items: center;
+  transition: height .2s ease;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  color: #fbfcfc;
+}
+
+.profile_pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile_sec {
+  margin-bottom: 20px;
+  display:flex ;
+  align-items: center;
+ 
+}
+.profile_section {
+  margin-bottom: 20px;
+  
+ 
+}
+
+.subtitle {
+  font-size: 24px;
+  color: #f7f1f1;
+}
+
+.section_title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+.skill_list {
+  list-style: none;
+ 
+  padding-left: 0;
+}
+
+.skill_item {
+  background-color: #f1f1f1;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 20px;
+  width: 70%;
+  color: #333;
+
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  
+
+
+  border-radius: 8px;
+  background: transparent;
+ 
+  
+}
+
+.input_field {
+  padding: 15px;
+  border: 3px solid #2c2c2c;
+  border-radius: 20px;
+  margin-right: 20px;
+  
+  width: 50%;
+}
+
+ 
+
+.profile_section .add_button {
+ 
+
+  padding: 15px 15px;
+  background-color: #39c3cf;
+  color: #101c32;
+  border-color: black;
+  border: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile_section  .add_button:hover {
+  background-color: #0056b3;
+}
+
+/* General form styling */
+input {
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
