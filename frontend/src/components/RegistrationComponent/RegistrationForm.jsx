@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './RegistrationForm.css';
+import reg from'./RegistrationForm.module.css';
+import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { FaUser, FaLock } from "react-icons/fa";
-import { MdEmail, MdCake } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -49,51 +50,35 @@ const RegisterationForm = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="form-box register">
+    <div className={reg.auth_container}>
+      <div className={reg.form_box }>
         <form onSubmit={handleSubmit}>
           <h1>Registration</h1>
-          <div className="input-box">
+          <div className={reg.input_box}>
             <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-            <FaUser className="icon" />
+            <FaUser className={reg.icon} />
           </div>
-          <div className="input-box">
+          <div className={reg.input_box}>
             <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-            <MdEmail className="icon" />
+            <MdEmail className={reg.icon} />
           </div>
-          <div className="input-box">
+          <div className={reg.input_box}>
+            <input type="age" name="age" placeholder="Age" value={formData.age} onChange={handleChange} required />
+            <LiaBirthdayCakeSolid className={reg.icon} />
+           
+          </div>
+          <div className={reg.input_box}>
             <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-            <FaLock className="icon" />
+            <FaLock className={reg.icon} />
           </div>
-
-          {/* Skills Input Section */}
-          <div className="input-box">
-            <input
-              type="text"
-              placeholder="Enter your skills"
-              value={skillInput}
-              onChange={(e) => setSkillInput(e.target.value)}
-            />
-            <button type="button" className="skill-btn" onClick={handleAddSkill}>Add Skill</button>
-          </div>
-          
-          {/* Display Skills */}
-          <div className="skills-list">
-            {formData.skills.map((skill, index) => (
-              <div key={index} className="skill-item">
-                {skill}
-              </div>
-            ))}
-          </div>
-
-          <div className="remember-forget">
+          <div className={reg.remember_forget}>
             <label>
               <input type="checkbox" required /> I agree to the terms & conditions
             </label>
           </div>
-          <br />
-          <button type="submit" >Register</button>
-          <div className="register-link">
+          
+          <button type="submit ">Register</button>
+          <div className={reg.register_link}>
             <p>
               Already have an account? <Link to="/login">Login</Link>
             </p>

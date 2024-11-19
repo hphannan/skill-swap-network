@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginForm.css';
+import login from'./LoginForm.module.css';
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -32,27 +32,27 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='back'>
-         <div className="auth-container">
-      <div className="form-box login">
+    <div className={login.back}>
+         <div className={login.auth_container}>
+      <div className={login.form_box }>
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
-          <div className="input-box">
+          <div className={login.input_box}>
             <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-            <FaUser className="icon" />
+            <FaUser className={login.icon} />
           </div>
-          <div className="input-box">
+          <div className={login.input_box}>
             <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-            <FaLock className="icon" />
+            <FaLock className={login.icon} />
           </div>
-          <div className="remember-forget">
+          <div className={login.remember_forget}>
             <label>
               <input type="checkbox" /> Remember me
             </label>
           </div>
           <br />
-          <button type="submit">Login</button>
-          <div className="register-link">
+          <button type={login.submit}>Login</button>
+          <div className={login.register_link}>
             <p>
               Don't have an account? <Link to="/register">Register</Link>
             </p>

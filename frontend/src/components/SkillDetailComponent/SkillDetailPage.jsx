@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './SkillDetailPage.css';
+import detail from './SkillDetailPage.module.css';
 
 const SkillDetailPage = () => {
   const { skillId } = useParams();

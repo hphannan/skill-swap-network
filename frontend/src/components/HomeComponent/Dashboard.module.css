@@ -7,7 +7,7 @@
 .banner{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images/back2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images//home.webp);
     background-size: cover;
     
     background-position: center;
@@ -103,28 +103,13 @@ cursor: pointer;
 position: relative;
 overflow: hidden;
 }
-span{
-    background-color: #009688;
-    height: 100%;
-    width: 0%;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index:-1;
-    transition: 0.5s;
-}
-button:hover span{
-    width: 100%;
-}
-button:hover{
-    border:none;
-}
+
 /* cource */
 #course {
     padding: 8vw 8vw 0 8vw;
     text-align: center ;
-    background-color: #87ad89;
+    background-color: #b5d8b6;
+
 }
 #course h1{
     font-size: 2.5rem;
@@ -135,7 +120,7 @@ button:hover{
     font-size: 1.1rem;
     color: rgb(24, 24, 49);
 }
-#course .course-box{
+#course .course_box{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem;
@@ -144,12 +129,14 @@ button:hover{
  #course .courses{
     text-align: start;
     background: #f9f9ff;
+    border-radius: 15px;
     height: 100%;
     position: relative;
  }
 #course .courses img{
     width: 100%;
     height: 60%;
+    border-radius: 15px;
     background-size: cover;
     background-position: center;
 }
@@ -182,21 +169,21 @@ button:hover{
     text-align: center;
     background-color: #f9f9ff;
 }
-#features .fea-base{
+#features .base{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem;
     margin-top: 50px;
 }
 
-#features .fea-box{
+#features .box{
     background: #b0b0d8;
     text-align: center;
     border-radius:8px;
 
 }
 
-#features .fea-box i{
+#features .box i{
     font-size: 2.3rem;
     color: rgb(44, 44, 80);
 
@@ -206,7 +193,7 @@ button:hover{
   align-items: center;
     font-size: 40px;
 }
-#features .fea-box h3{
+#features .box h3{
     font-size: 1.2rem;
     font-weight: 600;
     color: rgb(46, 46, 59);
@@ -217,7 +204,7 @@ button:hover{
     font-weight: 700;
     color: rgb(35, 35, 85);
 }
-#features .fea-box p{
+#features .box p{
     font-size: 1rem;
     font-weight: 500;
     color: rgb(9, 9, 16);
@@ -307,17 +294,17 @@ button:hover{
 /*CTA*/
 
 .line{
-    padding: 20px;
+    padding: 30px;
     }
     
-      .contact-buttons {
+      .contact_buttons {
         text-align: center;
         margin-top: 20px;
         margin-bottom: 50px;
         background-color: #c1c1d2;
       }
       
-      .contact-buttons button {
+      .contact_buttons button {
         width: 27%;
         height: 20%;
         text-align: center;
@@ -332,16 +319,16 @@ button:hover{
         transition: background-color 0.3s;
       }
       
-      .contact-buttons button:hover {
+      .contact_buttons button:hover {
         background-color: #45a049; 
       }
       
-      .contact-buttons button i {
+      .contact_buttons button i {
         margin-right: 8px;
       }
       
     
-      .contact-buttons .phone-number {
+      .contact_buttons .phone_number {
         display: block;
         font-size: 12px;
       }
@@ -351,32 +338,50 @@ button:hover{
     text-align: center;
     background: #c8bdbd;
 }
-
-#experts .expert-box{
+#experts h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(35, 35, 85);
+}
+#experts p{
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(35, 35, 85);
+}
+#experts .expert_box{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1rem;
+    
     margin-top: 50px;
 }
 
-#experts .expert-box .profile{
+#experts .expert_box .profile {
     background: #fafafa;
+    border-radius: 20px;
     padding: 30px 10px;
 }
+.profile h4{
+    color: #111;
+}
 
-.pro-links{
+.profile p{
+    color: #111;
+}
+
+.pro_links{
     margin-top: 10px;
 
 }
 
-.pro-links i{
+.pro_links i{
     padding: 10px 13px;
     border: 1px solid rgb(21, 21, 100);
     cursor: pointer;
     transition: 0.3 ease;
 }
 
-.pro-links i:hover{
+.pro_links i:hover{
     background-color: rgb(21, 21, 100);
     color:#fff;
     border: 1px solid rgb(21, 21, 100);
@@ -385,7 +390,7 @@ button:hover{
 
 /* footer */
 footer{
-    background-image: linear-gradient(rgba(64, 50, 218, 0.3),rgba(15, 15, 19, 0.7) ),url();
+    background-image: linear-gradient(rgba(64, 50, 218, 0.3),rgba(15, 15, 19, 0.7) ),url(../images/back2.jpg);
     padding: 8vw;
     background-color: #101c32;
     display: flex;
@@ -393,7 +398,7 @@ footer{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-footer .footer-col{
+footer .footer_col{
     padding-bottom: 40px;
 }
 
@@ -468,17 +473,17 @@ footer .copyright p{
     color: #fff;
 
 }
-footer .copyright .pro-links{
+footer .copyright .pro_links{
     margin-top: 0px;
 
 }
 
-footer .copyright .pro-links i{
+footer .copyright .pro_links i{
     background-color: #5f7185;
     color: #fff;
 }
 
-footer .copyright .pro-links i:hover{
+footer .copyright .pro_links i:hover{
     background-color: #fdc93b;
     color: #2c2c2c;
 }

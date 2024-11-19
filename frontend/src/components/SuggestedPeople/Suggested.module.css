@@ -13,14 +13,14 @@ body {
 }
 
 
-.skill_banner{
+.banner{
     width: 100%;
     height: 60vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images/back2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images/3.jpeg);
     background-size: cover;
     background-position: center;
 }
-.skill_navbar{
+.navbar{
     width: 85%;
     margin: auto;
     padding: 35px 0;
@@ -32,21 +32,21 @@ body {
     width: 100px;
     cursor:pointer
 }
-.skill_navbar ul li{
+.navbar ul li{
     list-style: none;
     display: inline-block;
     margin: 0 20px;
     position: relative;
 }
-.skill_navbar ul li a{
+.navbar ul li a{
     text-decoration: none;
     color:#fff;
     text-transform: uppercase;
 }
-.skill_navbar ul i{
+.navbar ul i{
     color: #fff;
 }
-.skill_navbar ul li::after{
+.navbar ul li::after{
     content: '';
     height: 3px;
     width: 0;
@@ -56,15 +56,33 @@ body {
     bottom: -10px;
     transition: 0.5s;
 } 
-.skill_navbar ul li:hover::after{
+.navbar ul li:hover::after{
     width: 100%;
 }
-.skill_navbar ul li a.active,
-.skill_navbar ul li a:hover{
+.navbar ul li a.active,
+.navbar ul li a:hover{
     color: #fdc93b;
 
 }
-.skill_navbar{
+.cntent{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+.cntent h1{
+    font-size: 50px;
+    color: #f0f0f0;
+    margin-top: 80px;
+}
+.cntent p {
+    margin:  20px auto;
+    font-weight:100;
+     line-height: 25px;
+   }
+   .navbar{
     position: fixed;
     top: 0;
     width: 100%;
@@ -75,60 +93,73 @@ body {
     transition-timing-function: ease-in;
     transition: all 0.5s;
     background-color: #111;
-}
-.skill_content{
-    width: 100%;
-    position: absolute;
-    top: 30%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: #fff;
-}
-.skill_content h1{
-    font-size: 50px;
-    color: #f0f0f0;
-    margin-top: 80px;
-}
-.skill_content p {
-    margin:  20px auto;
-    font-weight:100;
-     line-height: 25px;
-   }
+}   
 
 
 
 
-.skill_container {
+
+
+
+.contain {
     width: 90%;
-    max-width: 600px;
-    background-color: #ffffff;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.skill_container h1 {
+.contain h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
-.skill_container .add-skill {
+.profile_list {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.skill_container  .add-skill input {
+.profile_card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.profile_card:hover {
+    transform: translateY(-5px);
+}
+
+.profile_pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile {
     flex: 1;
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
-.skill_container .add-skill button {
-    padding: 10px 15px;
+.profile h2 {
+    margin-bottom: 5px;
+    color: #007acc;
+}
+
+.profile p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.profile .connect_btn {
+    padding: 8px 15px;
     background-color: #007acc;
     color: white;
     border: none;
@@ -137,41 +168,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.skill_container .add-skill button:hover {
+.profile .connect_btn:hover {
     background-color: #005f99;
-}
-
-.skill_container .skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.skill_container .skill-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-}
-
-.skill_container .skill-item h5 {
-    color: #333;
-}
-
-.skill_container .delete-btn {
-    padding: 5px 10px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.skill_container .delete-btn:hover {
-    background-color: #c0392b;
 }
 /* footer */
 footer{
@@ -183,17 +181,17 @@ footer{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-footer .skill_footer-col{
+footer .footer_col{
     padding-bottom: 40px;
 }
 
-footer .skill_footer-col h3{
+footer h3{
      color: #fff;
      font-weight: 600;
      padding-bottom: 20px;
 }
 
-footer .skill_footer-col  li{
+footer li{
     list-style: none;
     color: #fff;
     padding: 10px 0;
@@ -202,17 +200,17 @@ footer .skill_footer-col  li{
     transition: 0.3s ease;
 }
 
-footer .skill_footer-col li:hover{
+footer li:hover{
     color: rgb(247, 215, 5);
 }
-footer .skill_footer-col p{
+footer p{
     color: rgb(247, 215, 5);
 }
 
-footer .skill_footer-col .subscribe{
+footer .subscribe{
     margin-top: 20px;
 }
-footer .skill_footer-col  input{
+footer input{
     width: 220px;
     padding: 15px 12px;
     background: #fff;
@@ -222,7 +220,7 @@ footer .skill_footer-col  input{
     border-radius: 5px;
 }
 
-footer .skill_footer-col .subscribe a{
+footer .subscribe a{
     text-decoration: none;
     font-size: 0.9rem;
     padding: 12px 15px;
@@ -231,7 +229,7 @@ footer .skill_footer-col .subscribe a{
 }
 
 
-footer .skill_footer-col .subscribe a.yellow{
+footer .subscribe a.yellow{
     color: #2c2c2c;
     background-color:#fdc93b;
     transition: 0.3s ease;
@@ -240,12 +238,12 @@ footer .skill_footer-col .subscribe a.yellow{
 
 }
 
-footer .skill_footer-col .subscribe a.yellow:hover{
+footer .subscribe a.yellow:hover{
     color:rgb(21, 21, 100);
     background-color: blue;      
 }
 
-footer .skill_footer-col .copyright{
+footer .copyright{
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -254,21 +252,21 @@ footer .skill_footer-col .copyright{
     flex-wrap: wrap;
 }
 
-footer .skill_footer-col .copyright p{ 
+footer .copyright p{ 
     color: #fff;
 
 }
-footer .skill_footer-col .copyright .pro-links{
+footer .copyright .pro_links{
     margin-top: 0px;
 
 }
 
-footer .skill_footer-col .copyright .pro-links i{
+footer .copyright .pro_links i{
     background-color: #5f7185;
     color: #fff;
 }
 
-footer .skill_footer-col .copyright .pro-links i:hover{
+footer .copyright .pro_links i:hover{
     background-color: #fdc93b;
     color: #2c2c2c;
 }

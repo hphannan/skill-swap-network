@@ -1,0 +1,393 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+.skill_banner{
+    width: 100%;
+    height: 60vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images/4.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.skill_navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 100px;
+    cursor:pointer
+}
+.skill_navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.skill_navbar ul li a{
+    text-decoration: none;
+    color:#fff;
+    text-transform: uppercase;
+}
+.skill_navbar ul i{
+    color: #fff;
+}
+.skill_navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+} 
+.skill_navbar ul li:hover::after{
+    width: 100%;
+}
+.skill_navbar ul li a.active,
+.skill_navbar ul li a:hover{
+    color: #fdc93b;
+
+}
+.skill_content{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+.skill_content h1{
+    font-size: 50px;
+    margin-top: 80px;
+}
+.skill_content p {
+    margin:  20px auto;
+    font-weight:100;
+     line-height: 25px;
+   }
+
+
+.skill_contain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+.skill_navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+    background-color: #111;}
+
+ /* Main content styles */
+ .main {
+    padding: 20px;
+    background-color: #fff;
+    justify-content: center;
+  }
+  
+  .hero {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .hero_title {
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero_title:before {
+    content: "🎓";
+    margin-right: 10px;
+  }
+  
+  .hero_description {
+    margin-top: 10px;
+    color: #666;
+   
+    font-size: 20px;
+  }
+  
+  .search_bar {
+    margin-top: 20px;
+    display: flex;
+    width: 50%;
+    padding: 8px;
+    gap: 10px;
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Aligns items vertically */
+    margin: 20px 0; 
+    margin-left: 20%;
+  }
+  
+  .search_input {
+   
+    width: 200px;
+    border: 1px solid #ccc;
+    color: black;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 15px;
+  }
+  
+  .search_dropdown {
+ 
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 15px;
+    width: 50%;
+  }
+  
+  /* Recent skills section */
+  .recent_skills {
+    margin-top: 30px;
+  }
+  
+  .section_title {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .section_title:before {
+    content: "📋";
+    margin-right: 10px;
+  }
+  
+
+  
+  /* Main content styles */
+  .main_content {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .skills_section {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .section_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .section_title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .section_description {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .add_skill_btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;;
+    cursor: pointer;
+  }
+  
+  .skills_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .skills_table th,
+  .skills_table td {
+    padding: 10px;
+    border: 1px solid #060202;
+    text-align: center;
+  }
+  
+  .skills_table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .status_active{
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .notification_icon {
+    font-size: 16px;
+  }
+  
+  .edit_btn {
+  
+        background-color: #000;
+        color: #fff;
+        padding: 10px 5px;
+        border: none;
+        width: 70px;
+        border-radius: 15px;;
+        cursor: pointer;
+  }
+  
+  .delete_btn {
+    background-color: #f8d7da;
+    color: #d9534f;
+    padding: 10px 5px;
+    border: none;
+    width: 70px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .page_btn {
+    background-color: #f9f9ff;
+    border: 1px solid #ddd;
+    padding: 2px 10px;
+    width: 5px;
+    cursor: pointer;
+    color: black;}
+  
+  .current_page {
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+
+
+ /* footer */
+ footer{
+    background-image: linear-gradient(rgba(64, 50, 218, 0.3),rgba(15, 15, 19, 0.7) ),url();
+    padding: 8vw;
+    background-color: #101c32;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+footer .footer_col{
+    padding-bottom: 40px;
+}
+
+footer h3{
+     color: #fff;
+     font-weight: 600;
+     padding-bottom: 20px;
+}
+
+footer li{
+    list-style: none;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+footer li:hover{
+    color: rgb(247, 215, 5);
+}
+footer p{
+    color: rgb(247, 215, 5);
+}
+
+footer .subscribe{
+    margin-top: 20px;
+}
+footer input{
+    width: 220px;
+    padding: 15px 12px;
+    background: #fff;
+    border: none;
+    outline: none;
+    color: black;
+    border-radius: 5px;
+}
+
+footer .subscribe a{
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 12px 15px;
+    background-color: #fff;
+    font-weight: 600;
+}
+
+
+footer .subscribe a.yellow{
+    color: #2c2c2c;
+    background-color:#fdc93b;
+    transition: 0.3s ease;
+    border-radius: 5px;
+    padding: 14px;
+
+}
+
+footer .subscribe a.yellow:hover{
+    color:rgb(21, 21, 100);
+    background-color: blue;      
+}
+
+footer .copyright{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+footer .copyright p{ 
+    color: #fff;
+
+}
+footer .copyright .pro_links{
+    margin-top: 0px;
+
+}
+
+footer .copyright .pro_links i{
+    background-color: #5f7185;
+    color: #fff;
+}
+
+footer .copyright .pro_links i:hover{
+    background-color: #fdc93b;
+    color: #2c2c2c;
+}
