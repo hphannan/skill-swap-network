@@ -2,47 +2,47 @@ import React, { Component } from 'react';
 import { GiCash } from "react-icons/gi";
 import { FcCollaboration } from "react-icons/fc";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
-import './Dashboard.css';
+import dash from './Dashboard.module.css';
 
 const Dashboard = () => {
   return (
     <div >
-            <div class="banner">
-                <div class="navbar">
-              <img src="/images/logo.png" alt="Logo" className="logo" />
+            <div class={dash.banner}>
+                <div  className={dash.navbar}>
+              <img src="/images/logo.png" alt="Logo" className={dash.logo} />
         
             <ul>
-            <li> <a class="active" href="home">Home</a></li>
-            <li> <a href="">Skill swaps</a></li>
+            <li> <a  className={dash.active} href="home">Home</a></li>
+            <li> <a href="swap">Skill swaps</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a href="about">about us </a></li>
-            <li> <a href=""> suggested people</a></li>   
+            <li> <a href="suggest"> suggested people</a></li>   
             <li> <a href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
             <li> <a href="login">Login/signup</a></li>
         
            </ul>
            </div>
-            <div class="content">
+            <div class={dash.content}>
             <h1>
                 Learn Any Skill Without Spending A Dime
             </h1>
            <p> Subcribe Easy Totorials YouYube Channel to Watch more Videos, press 
             the bell icon to get latest updates.  </p>
              <div>
-             <button type="button" href="skill"><span></span>My Skills</button>
-            <button type="button"><span></span>SKILL DETAIL</button>
+             <button type={dash.button}className={dash.detail_btn} ><a href='myskill'>My Skills</a></button>
+            <button type={dash.button} className={dash.detail_btn}><a href='detail'>Skill Details</a></button>
              </div> </div>
            </div>
 
 
-           <section id="features">
+           <section id={dash.features}>
         <h1>Awesome Features</h1>
         <p>Replenish man have thing gathering lights yielding shall you </p>
-        <div class="fea-base">
-           <div class="fea-box">
+        <div class={dash.base}>
+           <div class={dash.box}>
             <br/>
-           <GiCash className="icon"/>
+           <GiCash className={dash.icon}/>
            <br/>
            
              <h3>Cashless System</h3>
@@ -50,9 +50,9 @@ const Dashboard = () => {
              <br/>
            </div>
         
-           <div class="fea-box">
+           <div class={dash.box}>
             <br/>
-            <FcCollaboration className="icon"/>
+            <FcCollaboration className={dash.icon}/>
            <br/>
            
            <h3>Foster collaboration</h3>
@@ -60,9 +60,9 @@ const Dashboard = () => {
              <br/>
            </div>
             
-           <div class="fea-box">
+           <div class={dash.box}>
             <br/>
-            <VscWorkspaceTrusted className="icon" />
+            <VscWorkspaceTrusted className={dash.icon} />
            <br/>
            
            <h3>Trusted Community</h3>
@@ -73,23 +73,22 @@ const Dashboard = () => {
         <br/>
         <br/>
   </section>
-<br/>
-<br/>
+
          
-  <section id="course">
+  <section id={dash.course}>
         <h1>Our Popular Skills</h1>
         <p> A platform allowing users to trade skills like design for
             coding.
             Facilitates collaboration and learning without monetary
             transactions.
             Encourages a community-driven approach to skill-building. </p>
-        <div class="course-box">
+        <div class={dash.course_box}>
 
-            <div class="courses">
-            <img src='' />
-                <div class="details">
+            <div class={dash.courses}>
+            <img src='/images/skill8.jpg' />
+                <div class={dash.details}>
                       <span>Updated 21/8/21</span>
-                      <h6>JavaScript Beginners Course</h6>
+                      <h6>Subject knowledge Skill</h6>
                      <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -101,11 +100,11 @@ const Dashboard = () => {
                 </div>
                    
             </div>
-           <div class="courses">
-            <img src="" alt=""/>
-            <div class="details">
+           <div class={dash.courses}>
+            <img src="/images/skill6.jpg" alt="images"/>
+            <div class={dash.details}>
                   <span>Updated 21/8/21</span>
-                  <h6>Computer Networking Course</h6>
+                  <h6>Computer  Networking Skills</h6>
                  <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -117,11 +116,11 @@ const Dashboard = () => {
             </div>
                  
         </div>
-          <div class="courses">
-              <img src="" alt=""/>
-              <div class="details">
+          <div class={dash.courses}>
+              <img src="/images/skill2.png" alt=""/>
+              <div class={dash.details}>
                     <span>Updated 21/8/21</span>
-                    <h6>Database Administration Course</h6>
+                    <h6> Computer Language Skills</h6>
                    <div class="star">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -133,11 +132,11 @@ const Dashboard = () => {
               </div>
                  
           </div>
-          <div class="courses">
-            <img src="" alt=""/>
-            <div class="details">
+          <div class={dash.courses}>
+            <img src="/images/skill3.WEBP" alt=""/>
+            <div class={dash.details}>
                   <span>Updated 21/8/21</span>
-                  <h6>Mubile Application Development Course</h6>
+                  <h6>Communication Skill</h6>
                  <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -149,11 +148,11 @@ const Dashboard = () => {
             </div>
                 
         </div>
-        <div class="courses">
-            <img src="" alt=""/>
-            <div class="details">
+        <div class={dash.courses}>
+            <img src="/images/skill4.jpg" alt=""/>
+            <div class={dash.details}>
                   <span>Updated 21/8/21</span>
-                  <h6>Website Development Course</h6>
+                  <h6>Website Development Skills </h6>
                  <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -165,11 +164,11 @@ const Dashboard = () => {
             </div>
                
         </div>
-        <div class="courses">
-            <img src="" alt=""/>
-            <div class="details">
+        <div class={dash.courses}>
+            <img src="/images/skill5.jpg" alt=""/>
+            <div class={dash.details}>
                   <span>Updated 21/8/21</span>
-                  <h6>Amzon Cloud computing Course</h6>
+                  <h6>Amzon Cloud computing Skill</h6>
                  <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -178,115 +177,96 @@ const Dashboard = () => {
                     <i class="fas fa-star"></i>
                     <span>(239)</span>
                  </div>
-            </div>
-            
-                 
+            </div>   
         </div>
      
         </div>
         <br/>
         <br/>
+        <br/>
+        <br/>
     </section>
-<br/>
-<br/>
-    <section id="registration">
-        <div class="reminder">
+
+    <section id={dash.registration}>
+        <div class={dash.reminder}>
             <p>Get 100 online skills for free</p>
             <h1>Register To Get It</h1>
-            <div class="time">
-                <div class="date">
+            <div class={dash.time}>
+                <div class={dash.date}>
                     18 <br/> Days
                 </div>
-                <div class="date">
+                <div class={dash.date}>
                     06 <br/> Hours
                 </div>
-                <div class="date">
+                <div class={dash.date}>
                     50 <br/> Mins
                 </div>
             </div>
         </div>
 
-        <div class="form">
+        <div class={dash.form}>
             <h3>Create Free Amount Now!</h3>
             <input type="text" placeholder="Name" name="" id=""/>
             <input type="text" placeholder="Email Adress" name="" id=""/>
             <input type="text" placeholder="Phone Number" name="" id=""/>
-                <div class="btn">
-                    <a class="yellow" href="#">Submit</a>  
+                <div class={dash.btn}>
+                    <a class={dash.yellow} href="#">Submit</a>  
                 </div>
         </div>
         <br/>
         <br/>
 </section>
 
-<br/>
+    <section class={dash.contact_buttons}>
     <br/>
-    <section class="contact-buttons">
-        <h2 class="line">Don't wait any longer.Contact us!</h2>
-        <button class="whatsapp-button"><i class="fab fa-whatsapp"></i> WhatsApp <span class="phone-number">123-456-7890</span></button>
-        <button class="facebook-button"><i class="fab fa-facebook"></i> Facebook <span class="phone-number">123-456-7890</span></button>
-        <button class="call-button"><i class="fas fa-phone"></i> Call <span class="phone-number">123-456-7890</span></button>
+    <br/>
+        <h2 class={dash.line}>Don't wait any longer.Contact us!</h2>
+        <button class={dash.whatsapp_button}><i class="fab fa-whatsapp"></i> WhatsApp <span class={dash.phone_number}>123-456-7890</span></button>
+        <button class={dash.facebook_button}><i class="fab fa-facebook"></i> Facebook <span class={dash.phone_number}>123-456-7890</span></button>
+        <button class={dash.call_button}><i class="fas fa-phone"></i> Call <span class={dash.phone_number}>123-456-7890</span></button>
+        <br/>
+        <br/>
        </section>
-       <br/>
-       <br/>
-       <section id="experts">
+      
+       <section id={dash.experts}>
         <h1>Comunity Experts</h1>
         <p>Replenish man have thing gathering lights yielding shall you </p>
-        <div class="expert-box">
-            <div class="profile">
-                <img src="" alt=""/>
-                <h6>Ema Irnik</h6>
+        <div class={dash.expert_box}>
+            <div class={dash.profile}>
+                <img src="/images/pro1.WEBP" alt=""/>
+                <h4>Ema Irnik</h4>
                 <p>Python & Algorithm Expert</p>
-                <div class="pro-links">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                </div>
+              
             </div>
-            <div class="profile">
-                <img src="" alt=""/>
-                <h6>Ema Irnik</h6>
-                <p>Python & Algorithm Expert</p>
-                <div class="pro-links">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                </div>
+            <div class={dash.profile}>
+                <img src="/images/pro2.WEBP" alt=""/>
+                <h4>Jon samith</h4>
+                <p>Java & Web Development</p>
+            
             </div>
-            <div class="profile">
-                <img src="" alt=""/>
-                <h6>Ema Irnik</h6>
-                <p>Python & Algorithm Expert</p>
-                <div class="pro-links">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                </div>
+            <div class={dash.profile}>
+                <img src="/images/pro3.WEBP" alt=""/>
+                <h4>Ariyana </h4>
+                <p>Html/css & Cloud Computing skill</p>
+              
             </div>
-            <div class="profile">
-                <img src="" alt=""/>
-                <h6>Ema Irnik</h6>
-                <p>Python & Algorithm Expert</p>
-                <div class="pro-links">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                </div>
+            <div class={dash.profile}>
+                <img src="/images/pro4.WEBP" alt=""/>
+                <h4>Marliya Samar</h4>
+                <p>Communication  & Database management Skill</p>
+               
             </div>
         </div>
     </section>
-<br/>
-<br/>
-
           <footer>
-                <div class="footer-col">
+                <div class={dash.footer_col}>
                    <h3> Top Products</h3>
                    <li>Manage Reputation</li>
                    <li>Power Tools</li>
                     <li>Managed Website</li>
                      <li>Marketing Service</li>
                  </div>
-              <div class="footer-col">
+              <div class={dash.footer_col}>
                    <h3>Quick Links</h3>
                    <li>Jobs</li>
                   <li>Brand Assests</li>
@@ -294,31 +274,31 @@ const Dashboard = () => {
                   <li>Team of Service</li>
 
                 </div> 
-              <div class="footer-col">
+              <div class={dash.footer_col}>
                   <h3>Features</h3>
                   <li>Manage Reputation</li>
                   <li>Power Tools</li>
                   <li>Managed Website</li>
                  <li>Marketing Service</li>
                </div> 
-              <div class="footer-col">
+              <div class={dash.footer_col}>
                       <h3>Resources</h3>
                       <li>Guides</li>
                      <li>Research</li>
                      <li>Experts</li>
                      <li>Marketing Service</li> 
                  </div> 
-                     <div class="footer-col">
+                     <div class={dash.footer_col}>
                        <h3>Newsletter</h3>
                      <p>you can trust us. we only send promo offers,</p>
-                  <div class="subscribe">
-            < input type="text" placeholder="Your Email address"/>
-                       <a href="#" class="yellow">SUBSCRIBE</a>
+                  <div class={dash.subscribe}>
+            < input type={dash.text} placeholder="Your Email address"/>
+                       <a href="#" class={dash.yellow}>SUBSCRIBE</a>
                  </div>
                    </div>
-                    <div class="copyright">
+                    <div class={dash.copyright}>
                <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>
-               <div class="pro-links">
+               <div class={dash.pro_links}>
                     <i class="fab fa-facebook-f"></i>
                   <i class="fab fa-instagram"></i>
              <i class="fab fa-linkedin-in"></i> 

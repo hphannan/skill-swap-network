@@ -13,7 +13,11 @@ import Home from './components/HomeComponent/Dashboard';
 import About from './components/AboutComponent/About';
 import ContactUs from './components/ContactComponent/contact';
 
-import MySkills from './components/MySkilComponent/MySkills';
+import Create from './components/CreateComponent/create';
+import Suggest from './components/SuggestedPeople/Suggested';
+import Swap from './components/SwapComponent/MySwap';
+import Detail from './components/DetailComponent/Detail';
+import MySkill from './components/MySkillComponent/MySkill';
 
 
 
@@ -33,7 +37,13 @@ function App() {
           <Route path="/home" element={<Home/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<ContactUs/>} />          
-          <Route path="/skill" element={<MySkills/>} />       
+          <Route path="/create" element={<Create/>} />   
+          <Route path="/suggest" element={<Suggest/>} />  
+          <Route path="/swap" element={< Swap />} /> 
+          <Route path="/detail" element={< Detail />} /> 
+          <Route path="/myskill" element={< MySkill />} /> 
+
+
         </Routes>
       </div>
     </Router>

@@ -1,7 +1,7 @@
 // SkillsTradePage.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './SkillsPage.css';
+import  Sp from'./SkillsPage.module.css';
 
 const SkillsTradePage = () => {
   const [users, setUsers] = useState([]);

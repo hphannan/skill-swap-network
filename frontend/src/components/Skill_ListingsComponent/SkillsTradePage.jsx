@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './SkillsTradePage.css';
+import trade from'./SkillsTradePage.module.css';
 
 const SkillsTradePage = () => {
   const [users, setUsers] = useState([]);
