@@ -63,7 +63,7 @@ const RegisterationForm = () => {
             <MdEmail className={reg.icon} />
           </div>
           <div className={reg.input_box}>
-            <input type="age" name="age" placeholder="Age" value={formData.age} onChange={handleChange} required />
+            <input type="age" name="age" placeholder="Age" value={formData.age} onChange={handleChange}  />
             <LiaBirthdayCakeSolid className={reg.icon} />
            
           </div>
