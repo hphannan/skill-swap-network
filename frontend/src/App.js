@@ -28,13 +28,13 @@ function App() {
       <div className="App">
         <Routes>
           {/* Define routes for register and login forms */}
+          <Route path="/" element={<Home/>} />
           <Route path="/register" element={<RegistrationForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/user/profile" element={<UserComponent />} />
           <Route path="/skill-listings" element={<SkillsTrade />} />
           <Route path="/search-functionality " element={<Functionality />} />
           <Route path="/skill-detail " element={<SkillDetail/>} />        
-          <Route path="/home" element={<Home/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<ContactUs/>} />          
           <Route path="/create" element={<Create/>} />   

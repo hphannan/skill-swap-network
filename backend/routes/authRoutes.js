@@ -9,7 +9,7 @@ app.use(express.json());
 
 router.post('/register', async (req, res) => {
     console.log(req.body);
-    const { name, email, password, skills } = req.body;
+    const { name, email, password,age, skills } = req.body;
     try {
         let user = await User.findOne({ email });
         if (user) {
@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        user = new User({ name, email, password: hashedPassword, skills });
+        user = new User({ name, email, password: hashedPassword,age, skills });
         await user.save();
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });

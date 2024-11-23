@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import skill from './create.module.css';
+import axios from 'axios';
 
 const MySkills = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    category: '',
+    duration: '',
+    requirements: '',
+    availability: []
+    // user: 'user-id-placeholder',
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/api/skills', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+          // Authorization: `Bearer your-jwt-token`, // If authMiddleware requires a token
+        },
+      });
+      console.log('Skill created:', response.data);
+    } catch (error) {
+      console.error('Error creating skill:', error.response?.data || error.message);
+    }
+  };
+
   return (
     <div>
       <div className={skill.skill_banner}>
         <div className={skill.skill_navbar}>
           <img src="/images/logo.png" alt="Logo" className={skill.logo} />
           <ul>
-            <li><a  href="home">Home</a></li>
+            <li><a href="home">Home</a></li>
             <li><a href="swap">Skill swaps</a></li>
             <li><a className={skill.active} href="create">Create Skill Listing</a></li>
             <li><a href="about">About Us</a></li>
@@ -22,70 +54,201 @@ const MySkills = () => {
           <h1>MY Skills</h1>
         </div>
       </div>
-<br/>
-<br/>
-<div class={skill.form_container}>
-    <h2 class={skill.form_title}>📚 Create New Skill Listing</h2>
-    <p class={skill.form_subtitle}>Share your expertise with others by creating a new skill listing</p>
+      <br />
+      <br />
+      <div class={skill.form_container}>
+        <h2 class={skill.form_title}>📚 Create New Skill Listing</h2>
+        <p class={skill.form_subtitle}>Share your expertise with others by creating a new skill listing</p>
 
-    <form class={skill.skill_form}>
-      
-      <div class={skill.form_group}>
-        <label for="title">* Title</label>
-        <input type="text" id="title" placeholder="E.g., Piano Lessons"/>
+        <form class={skill.skill_form} onSubmit={handleSubmit}>
+
+          <div class={skill.form_group}>
+            <label for="name">* Name</label>
+            <input
+              onChange={handleChange}
+              type="text"
+              id="name"
+              placeholder="E.g., Piano Lessons"
+              value={formData.name}
+            />
+          </div>
+
+          <div class={skill.form_group}>
+            <label for="description">* Description</label>
+            <input
+              type="text"
+              id="description"
+              value={formData.description}
+              placeholder="Describe what you'll teach..."
+              onChange={handleChange}
+            />
+          </div>
+
+
+          <div className={skill.form_group}>
+            <div className={skill.form_row}>
+              {/* Duration Input */}
+              <div>
+                <label htmlFor="duration">* Duration (hours)</label>
+                <input
+                  type="number"
+                  id="duration"
+                  value={formData.duration}
+                  placeholder="0"
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Category Dropdown */}
+              <div>
+                <label htmlFor="category">* Category</label>
+                <select
+                  id="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                >
+                  <option value="" disabled>
+                    Select a category
+                  </option>
+                  <option value="technology">Technology</option>
+                  <option value="music">Music</option>
+                  <option value="arts">Arts</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div className={skill.form_group}>
+            <label htmlFor="requirements">Requirements</label>
+            <textarea
+              id="requirements"
+              value={formData.requirements}
+              placeholder="Any prerequisites or materials needed..."
+              onChange={handleChange}
+            ></textarea>
+          </div>
+
+
+
+          <div className={skill.form_group}>
+            <label htmlFor="availability">📅 Availability</label>
+            <div className={skill.availability}>
+              {/* Day Dropdown */}
+              <select
+                id="day"
+                value={formData.day || ''}
+                onChange={(e) => setFormData({ ...formData, day: e.target.value })}
+              >
+                <option value="" disabled>
+                  Day
+                </option>
+                {["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].map((day) => (
+                  <option key={day} value={day}>
+                    {day.charAt(0).toUpperCase() + day.slice(1)}
+                  </option>
+                ))}
+              </select>
+
+              {/* Start Time Dropdown */}
+              <select
+                id="startTime"
+                value={formData.startTime || ''}
+                onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
+              >
+                <option value="" disabled>
+                  Start Time
+                </option>
+                {Array.from({ length: 24 }, (_, i) => {
+                  const time = `${i.toString().padStart(2, '0')}:00`;
+                  return (
+                    <option key={time} value={time}>
+                      {time}
+                    </option>
+                  );
+                })}
+              </select>
+
+              {/* End Time Dropdown */}
+              <select
+                id="endTime"
+                value={formData.endTime || ''}
+                onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+              >
+                <option value="" disabled>
+                  End Time
+                </option>
+                {Array.from({ length: 24 }, (_, i) => {
+                  const time = `${i.toString().padStart(2, '0')}:00`;
+                  return (
+                    <option key={time} value={time}>
+                      {time}
+                    </option>
+                  );
+                })}
+              </select>
+
+              {/* Add Time Slot Button */}
+              <button
+                type="button"
+                className={skill.add_time_slot}
+                onClick={() => {
+                  if (formData.day && formData.startTime && formData.endTime) {
+                    const newSlot = {
+                      day: formData.day,
+                      startTime: formData.startTime,
+                      endTime: formData.endTime,
+                    };
+                    setFormData({
+                      ...formData,
+                      availability: [...formData.availability, newSlot],
+                      day: '',
+                      startTime: '',
+                      endTime: '',
+                    });
+                  } else {
+                    alert("Please select a day, start time, and end time.");
+                  }
+                }}
+              >
+                + Add Time Slot
+              </button>
+            </div>
+
+            {/* Display Added Slots */}
+            <div className={skill.added_slots}>
+              {formData.availability?.map((slot, index) => (
+                <div key={index} className={skill.slot}>
+                  <span>
+                    {/* Check if 'day' exists before accessing charAt */}
+                    {slot.day ? `${slot.day.charAt(0).toUpperCase() + slot.day.slice(1)}: ${slot.startTime} - ${slot.endTime}` : "Invalid Slot"}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setFormData({
+                        ...formData,
+                        availability: formData.availability.filter((_, i) => i !== index),
+                      })
+                    }
+                  >
+                    ❌ Remove
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+
+
+
+
+          <button type="submit" class={skill.submit_button}>📝 Create Skill Listing</button>
+        </form>
       </div>
-
-      <div class={skill.form_group}>
-        <label for="description">* Description</label>
-        <textarea id="description" placeholder="Describe what you'll teach..."></textarea>
-      </div>
-
-    
-      <div class={skill.form_group }>
-      <div class={skill.form_row}>
-        <div>
-          <label for="duration">* Duration (hours)</label>
-          <input type="number" id="duration" placeholder="0"/>
-        </div>
-        <div>
-          <label for="category">* Category</label>
-          <select id="category">
-            <option value="" disabled selected>Select a category</option>
-            <option value="technology">Technology</option>
-            <option value="music">Music</option>
-            <option value="arts">Arts</option>
-          </select>
-        </div>
-        </div>
-      </div>
-
-      <div class={skill.form_group }>
-        <label for="requirements">Requirements</label>
-        <textarea id="requirements" placeholder="Any prerequisites or materials needed..."></textarea>
-      </div>
-
-     
-      <div class={skill.form_group }>
-        <label for="availability">📅 Availability</label>
-        <div class={skill.availability}>
-          <select>
-            <option value="" disabled selected>Day</option>
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-          </select>
-          <input type="time"/>
-          <input type="time"/>
-          <button type="button" class={skill.add_time_slot}>+ Add Time Slot</button>
-        </div>
-      </div>
-
-     
-      <button type="submit" class={skill.submit_button}>📝 Create Skill Listing</button>
-    </form>
-  </div>
-<br/>
-<br/>
+      <br />
+      <br />
 
 
       <footer>

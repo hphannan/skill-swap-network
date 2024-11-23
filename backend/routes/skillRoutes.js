@@ -6,27 +6,40 @@ const Skill = require('../models/Skill');
 const router = express.Router();
 
 // Route to create a new skill
-router.post('/skills', authMiddleware, async (req, res) => {
-    const { name, description, category ,user } = req.body;
+router.post('/skills', async (req, res) => {
+    const { name, description, category, user, requirements, availability } = req.body;
+
+    console.log(req.body);
+
+    // Check for required fields
     if (!name || !description || !category) {
         return res.status(400).json({ message: 'Name, description, and category are required.' });
     }
+
     try {
+        // Create a new skill with all the fields
         const skill = new Skill({
             name,
             description,
             category,
             user,
+            requirements: requirements || '', // Default to empty string if not provided
+            availability: availability || [], // Default to empty array if not provided
         });
+
+        // Save the skill to the database
         await skill.save();
+
+        console.log('Skill saved');
         res.status(201).json(skill);
     } catch (error) {
         res.status(500).json({
             message: 'Server error',
-            error:  error.message,
+            error: error.message,
         });
     }
 });
+
 
 // Route to get all skills
 router.get('/skills',async (req, res) => {
