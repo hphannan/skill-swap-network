@@ -2,6 +2,7 @@
 
 const express = require('express');
 const authMiddleware = require('../middleware/authMiddleware');
+const User = require('../models/User');
 const Skill = require('../models/Skill');
 const router = express.Router();
 
@@ -40,16 +41,24 @@ router.post('/skills', async (req, res) => {
     }
 });
 
-
+router.get('/skills/:id', async (req, res) => {
+    const userId = req.params.id; try {
+        const user = await User.findById(userId).populate('skills');
+        if (!user || !user.skills) { return res.status(404).json({ message: 'Skills not found' }); } res.json(user.skills);
+    } catch (error) {
+        console.error("Error fetching skills:", error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
 // Route to get all skills
-router.get('/skills',async (req, res) => {
+router.get('/skills', async (req, res) => {
     try {
         const skills = await Skill.find();
         res.status(200).json(skills);
     } catch (error) {
         res.status(500).json({
             message: 'Server error',
-            error:  error.message,
+            error: error.message,
         });
     }
 });
@@ -71,7 +80,7 @@ router.put('/skills/:id', authMiddleware, async (req, res) => {
     } catch (error) {
         res.status(500).json({
             message: 'Server error',
-            error:  error.message,
+            error: error.message,
         });
     }
 }
@@ -86,7 +95,7 @@ router.delete('/skills/:id', authMiddleware, async (req, res) => {
         if (!skill) {
             return res.status(404).json({ message: 'Skill not found or not authorized' });
         }
-        
+
         // Use findByIdAndDelete directly with the ID
         await Skill.findByIdAndDelete(id);
 

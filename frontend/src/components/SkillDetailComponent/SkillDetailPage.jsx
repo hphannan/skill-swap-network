@@ -15,7 +15,7 @@ const SkillDetailPage = () => {
   useEffect(() => {
     const fetchSkillDetail = async () => {
       try {
-        const response = await axios.get(`https://yourapi.com/api/skills/${skillId}`);
+        const response = await axios.get(`http://localhost:5000/api/skills/${skillId}`);
         setSkillDetail(response.data);
       } catch (err) {
         setError('Failed to load skill details');
@@ -28,7 +28,7 @@ const SkillDetailPage = () => {
 
   const handleRequestExchange = async () => {
     try {
-      await axios.post(`https://yourapi.com/api/skills/${skillId}/request-exchange`, {
+      await axios.post(`http://localhost:5000/api/skills/${skillId}/request-exchange`, {
         message: requestMessage,
       });
       alert('Exchange request sent successfully');
