@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import skill from './create.module.css';
+import trackUserAction from '../../utils/trackUserAction.js';
+import { getUserIdFromSession } from '../../utils/authUtils.js'
 import axios from 'axios';
 
 const MySkills = () => {
+
+  // Get userId from session storage
+  const userId = getUserIdFromSession();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -10,8 +15,8 @@ const MySkills = () => {
     category: '',
     duration: '',
     requirements: '',
-    availability: []
-    // user: 'user-id-placeholder',
+    availability: [],
+    user: userId
   });
 
   const handleChange = (e) => {
@@ -28,6 +33,7 @@ const MySkills = () => {
           // Authorization: `Bearer your-jwt-token`, // If authMiddleware requires a token
         },
       });
+      trackUserAction('Skill created tracking')
       console.log('Skill created:', response.data);
     } catch (error) {
       console.error('Error creating skill:', error.response?.data || error.message);
