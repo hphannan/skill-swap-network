@@ -180,6 +180,7 @@ footer{
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100vw;
 }
 footer .footer_col{
     padding-bottom: 40px;

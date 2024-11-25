@@ -29,7 +29,7 @@ const LoginForm = () => {
       sessionStorage.setItem('user', JSON.stringify(user)); // Store user details
       
       alert('Login successful!');
-      navigate('/user/profile'); // Redirect to the profile page
+      navigate('/'); // Redirect to the profile page
     } catch (error) {
       alert('Login failed. Please check your credentials.');
       console.error(error);

@@ -8,7 +8,9 @@ const MySkill = () => {
   const [error, setError] = useState(null);
   const [editingSkill, setEditingSkill] = useState(null); // To track the currently edited skill
   const [editedSkill, setEditedSkill] = useState({}); // To store form data for editing
-
+  const [categories, setCategories] = useState([]); // To store unique categories
+  const [selectedCategory, setSelectedCategory] = useState(''); // To store the selected category
+  const [filteredSkills, setFilteredSkills] = useState([]);
 
   const navigate = useNavigate();
   // Get the user ID from session storage
@@ -28,27 +30,45 @@ const MySkill = () => {
       return;
     }
 
+    // Fetch skills for the user
     fetch(`http://localhost:5000/api/skills/${userId}`)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         if (data && data.length) {
-          setSkills(data.filter(skill => !skill.isDeleted));
+          const validSkills = data.filter((skill) => !skill.isDeleted);
+          setSkills(validSkills);
+          setFilteredSkills(validSkills); // Initially show all skills
+
+          // Extract unique categories
+          const uniqueCategories = [...new Set(validSkills.map((skill) => skill.category))];
+          setCategories(uniqueCategories);
         } else {
           setError('No skills found for this user');
         }
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('Error fetching skills:', err);
-        setError('Failed to fetch skills: ' + err.message);  // Show error message
+        setError('Failed to fetch skills: ' + err.message);
         setLoading(false);
       });
   }, [userId]);
+
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+
+    if (category === '') {
+      setFilteredSkills(skills); // Show all skills if no filter is selected
+    } else {
+      setFilteredSkills(skills.filter((skill) => skill.category === category));
+    }
+  };
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/api/skills/${id}`, {
@@ -64,7 +84,7 @@ const MySkill = () => {
 
         // Optionally, show a success message
         alert('Skill deleted successfully');
-        navigate('/myskills');
+        navigate('/myskill');
       })
       .catch((err) => {
         alert('Failed to delete skill: ' + err.message);
@@ -120,8 +140,8 @@ const MySkill = () => {
         <div class={skill.skill_navbar}>
           <img src="/images/logo.png" alt="Logo" className={skill.logo} />
           <ul>
-           
-            <li> <a  href="">Home</a></li>
+
+            <li> <a href="/">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a className={skill.active} href="myskill">My Skill </a></li>
             <li> <a href="swap">Skill swaps</a></li>
@@ -149,11 +169,15 @@ const MySkill = () => {
           <h1 class={skill.hero_title}>Skill Listings</h1>
           <p class={skill.hero_description}>Discover skills you want to learn from our community of experts.</p>
           <div class={skill.search_bar}>
-            <input type="text" placeholder="Search skills..." class={skill.search_input} />
-            <select class={skill.search_dropdown}>
-              <option value="" class={skill.search_input}>Filter</option>
-
+            <select className={skill.search_dropdown} onChange={handleCategoryChange} value={selectedCategory}>
+              <option value="" className={skill.search_input}>Filter</option>
+              {categories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
             </select>
+
           </div>
         </section>
         <br />
@@ -189,7 +213,7 @@ const MySkill = () => {
                 </tr>
               </thead>
               <tbody>
-                {skills.map((skillItem, index) => (
+                {filteredSkills.map((skillItem, index) => (
                   <tr key={index}>
                     <td>
                       {editingSkill === skillItem._id ? (
@@ -235,7 +259,7 @@ const MySkill = () => {
                         <>
                           <button className={skill.save_btn} onClick={handleSave}>
                             Save
-                          </button>
+                          </button><br /><br />
                           <button className={skill.cancel_btn} onClick={handleCancelEdit}>
                             Cancel
                           </button>
@@ -302,11 +326,7 @@ const MySkill = () => {
         </div>
         <div class={skill.footer_col}>
           <h3>Newsletter</h3>
-          <p>you can trust us. we only send promo offers,</p>
-          <div class={skill.subscribe}>
-            <input type="text" placeholder="Your Email address" />
-            <a href="#" class={skill.yellow}>SUBSCRIBE</a>
-          </div>
+          
         </div>
         <div class={skill.copyright}>
           <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>
