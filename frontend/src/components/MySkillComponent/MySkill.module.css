@@ -391,3 +391,7 @@ footer .copyright .pro_links i:hover{
     background-color: #fdc93b;
     color: #2c2c2c;
 }
+
+.save_btn , .cancel_btn{
+color: #000;
+}

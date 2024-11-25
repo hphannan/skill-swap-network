@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Route to create a new skill
 router.post('/skills', async (req, res) => {
-    const { name, description, category, user, requirements, availability } = req.body;
+    const { name, description, category, user, duration ,requirements, availability } = req.body;
 
     console.log(req.body);
 
@@ -24,14 +24,26 @@ router.post('/skills', async (req, res) => {
             description,
             category,
             user,
+            duration,
             requirements: requirements || '', // Default to empty string if not provided
             availability: availability || [], // Default to empty array if not provided
         });
 
         // Save the skill to the database
-        await skill.save();
-
+        const savedSkill = await skill.save();
         console.log('Skill saved');
+
+        const updatedUser = await User.findByIdAndUpdate(
+            user,
+            { $push: { skills: savedSkill._id } }, // Add the skill's ID to the user's skills array
+            { new: true, useFindAndModify: false } // Return the updated user and avoid deprecation warnings
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found.' });
+        }
+
+        console.log('User updated:', updatedUser);
         res.status(201).json(skill);
     } catch (error) {
         res.status(500).json({
@@ -64,7 +76,7 @@ router.get('/skills', async (req, res) => {
 });
 
 // Route to update a skill by ID
-router.put('/skills/:id', authMiddleware, async (req, res) => {
+router.put('/skills/:id', async (req, res) => {
     const { id } = req.params;
     const { name, description, category, user } = req.body;
     try {
@@ -87,7 +99,7 @@ router.put('/skills/:id', authMiddleware, async (req, res) => {
 );
 
 // Route to delete a skill by ID
-router.delete('/skills/:id', authMiddleware, async (req, res) => {
+router.delete('/skills/:id', async (req, res) => {
     const { id } = req.params;
     try {
         // Find the skill by ID
@@ -96,10 +108,11 @@ router.delete('/skills/:id', authMiddleware, async (req, res) => {
             return res.status(404).json({ message: 'Skill not found or not authorized' });
         }
 
-        // Use findByIdAndDelete directly with the ID
-        await Skill.findByIdAndDelete(id);
+        // Update the isDeleted flag to true
+        skill.isDeleted = true;
+        await skill.save();
 
-        res.status(200).json({ message: 'Skill deleted successfully' });
+        res.status(200).json({ message: 'Skill soft deleted successfully' });
     } catch (error) {
         res.status(500).json({
             message: 'Server error',
