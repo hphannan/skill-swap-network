@@ -12,7 +12,7 @@ const About = () => {
         <div class={style.a_navbar}>
         <img src="/images/logo.png" alt="Logo" className={style.logo}/>
         <ul>
-        <li> <a  href="">Home</a></li>
+        <li> <a  href="/">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a  href="myskill">My Skill </a></li>
             <li> <a href="swap">Skill swaps</a></li>
@@ -139,11 +139,7 @@ const About = () => {
     </div> 
     <div class={style.footer_col}>
         <h3>Newsletter</h3>
-        <p>you can trust us. we only send promo offers,</p>
-        <div class={style.subscribe}>
-            <input type="text" placeholder="Your Email address"/>
-            <a href="#" class={style.yellow}>SUBSCRIBE</a>
-        </div>
+        
     </div>
     <div class={style.copyright}>
 <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>

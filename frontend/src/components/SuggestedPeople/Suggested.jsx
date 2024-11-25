@@ -91,11 +91,7 @@ const Suggested = () => {
         </div> 
         <div class={sug.footer_col}>
             <h3>Newsletter</h3>
-            <p>you can trust us. we only send promo offers,</p>
-            <div class={sug.subscribe}>
-                <input type="text" placeholder="Your Email address"/>
-                <a href="#" class={sug.yellow}>SUBSCRIBE</a>
-            </div>
+            
         </div>
         <div class={sug.copyright}>
            <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>

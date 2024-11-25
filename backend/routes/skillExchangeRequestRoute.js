@@ -3,7 +3,7 @@ const router = express.Router();
 const SkillExchangeRequest = require('../models/SkillExchangeRequest'); // Adjust path as needed
 const authMiddleware = require('../middleware/authMiddleware');
 // POST /api/requests - Create a skill exchange request
-router.post('/requests',authMiddleware, async (req, res) => {
+router.post('/requests', async (req, res) => {
     try {
         const { requester, receiver, skillOffered, skillRequested } = req.body;
         const newRequest = await SkillExchangeRequest.create({
@@ -32,7 +32,7 @@ router.get('/requests', async (req, res) => {
 });
 
 // PUT /api/requests/:id/accept - Accept a skill exchange request
-router.put('/requests/:id/accept',authMiddleware, async (req, res) => {
+router.put('/requests/:id/accept', async (req, res) => {
     try {
         const request = await SkillExchangeRequest.findByIdAndUpdate(
             req.params.id,
@@ -47,7 +47,7 @@ router.put('/requests/:id/accept',authMiddleware, async (req, res) => {
 });
 
 // PUT /api/requests/:id/reject - Reject a skill exchange request
-router.put('/requests/:id/reject',authMiddleware, async (req, res) => {
+router.put('/requests/:id/reject',async (req, res) => {
     try {
         const request = await SkillExchangeRequest.findByIdAndUpdate(
             req.params.id,

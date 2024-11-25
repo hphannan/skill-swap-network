@@ -7,7 +7,7 @@ const Detail = () => {
         <div class={det.d_navbar}>
         <img src="/images/logo.png" alt="Logo" className={det.logo} />
         <ul>
-        <li> <a  className={det.active} href="home">Home</a></li>
+        <li> <a  className={det.active} href="/">Home</a></li>
             <li> <a href="swap">Skill swaps</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a href="about">about us </a></li>
@@ -86,11 +86,7 @@ const Detail = () => {
         </div> 
         <div class={det.footer_col}>
             <h3>Newsletter</h3>
-            <p>you can trust us. we only send promo offers,</p>
-            <div class={det.subscribe}>
-                <input type="text" placeholder="Your Email address"/>
-                <a href="#" class={det.yellow}>SUBSCRIBE</a>
-            </div>
+           
         </div>
         <div class={det.copyright}>
            <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>
