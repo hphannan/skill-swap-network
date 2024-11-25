@@ -12,6 +12,7 @@ const About = () => {
         <div class={style.a_navbar}>
         <img src="/images/logo.png" alt="Logo" className={style.logo}/>
         <ul>
+
         <li> <a  href="/">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a  href="myskill">My Skill </a></li>
