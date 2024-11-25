@@ -9,12 +9,12 @@ const contact = () => {
         <img src="/images/logo.png" alt="Logo" className={styleContact.logo} />
         <ul>
         
-        <li> <a  href="home">Home</a></li>
-            <li> <a href="swap">Skill swaps</a></li>
+        <li> <a  href="">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
+            <li> <a  href="myskill">My Skill </a></li>
+            <li> <a href="swap">Skill swaps</a></li>
             <li> <a href="about">about us </a></li>
-            <li> <a href="suggest"> suggested people</a></li>   
-            <li> <a class={styleContact.active} href="contact">Contact us</a></li>
+            <li> <a className={styleContact.active} href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
             <li> <a href="login">Login/signup</a></li>
            

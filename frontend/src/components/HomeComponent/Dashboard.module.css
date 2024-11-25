@@ -6,7 +6,7 @@
 }
 .banner{
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images//home.webp);
     background-size: cover;
     
@@ -73,7 +73,7 @@
 .content{
     width: 100%;
     position: absolute;
-    top: 60%;
+    top: 50%;
     transform: translateY(-50%);
     text-align: center;
     color: #fff;
@@ -89,20 +89,46 @@
      line-height: 25px;
    }
    
-button{
-width: 200px;
-padding: 15px 0;
-text-align: center;
-margin: 20px 10px;
-border-radius: 25px;
-font-weight: bold;
-border: 2px solid #009688;
-background: transparent;
-color: #fff;
-cursor: pointer;
-position: relative;
-overflow: hidden;
-}
+
+
+
+
+    .content a{
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 13px 35px;
+        background-color: #fff;
+       
+    
+        margin-left: 15px;
+        
+
+        width: 60%;
+        height: 45px;
+      
+        border: 2px;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 700;
+      
+    }
+    .content a.blue{
+        color: #100e0e;
+        background-color:#01c498;
+        transition: 0.3s ease;
+    }
+    
+    .content a.blue:hover{
+        color: rgb(23, 23, 207) ;
+        background-color:#fff ;
+    }
+    
+  
+    
 
 /* cource */
 #course {
@@ -299,9 +325,8 @@ overflow: hidden;
     
       .contact_buttons {
         text-align: center;
-        margin-top: 20px;
-        margin-bottom: 50px;
-        background-color: #c1c1d2;
+       
+        background-color: #8c8caa;
       }
       
       .contact_buttons button {
@@ -313,7 +338,7 @@ overflow: hidden;
         text-decoration: none;
         font-size: 20px;
         border: none;
-        border-radius: 5px;
+        border-radius: 120px;
         cursor: pointer;
         margin:  10px; 
         transition: background-color 0.3s;
