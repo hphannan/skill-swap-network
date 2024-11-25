@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const MySkills = () => {
 
-  // Get userId from session storage
-  const userId = getUserIdFromSession();
+  const userId = getUserIdFromSession() || ""; 
+  const [isCreated, setIsCreated] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -27,18 +27,36 @@ const MySkills = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/skills', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          // Authorization: `Bearer your-jwt-token`, // If authMiddleware requires a token
-        },
-      });
-      trackUserAction('Skill created tracking')
-      console.log('Skill created:', response.data);
+      const response = await axios.post(
+        "http://localhost:5000/api/skills",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("Skill created:", response.data);
+
+      // Log user action
+      trackUserAction("Skill created tracking");
+
+      // Show popup
+      setIsCreated(true);
+
+      // Hide popup after 3 seconds
+      setTimeout(() => {
+        setIsCreated(false);
+      }, 3000);
     } catch (error) {
-      console.error('Error creating skill:', error.response?.data || error.message);
+      console.error(
+        "Error creating skill:",
+        error.response?.data || error.message
+      );
     }
   };
+
 
   return (
     <div>
@@ -209,9 +227,6 @@ const MySkills = () => {
                     setFormData({
                       ...formData,
                       availability: [...formData.availability, newSlot],
-                      day: '',
-                      startTime: '',
-                      endTime: '',
                     });
                   } else {
                     alert("Please select a day, start time, and end time.");
@@ -246,11 +261,10 @@ const MySkills = () => {
             </div>
           </div>
 
-
-
-
-
           <button type="submit" class={skill.submit_button}>📝 Create Skill Listing</button>
+          {isCreated && (
+            <div className="popup">Skill created successfully! 🎉</div>
+          )}
         </form>
       </div>
       <br />

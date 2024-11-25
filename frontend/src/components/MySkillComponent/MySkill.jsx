@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import skill from './MySkill.module.css'
 const MySkill = () => {
   // State to store skills data, loading state, and error state
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editingSkill, setEditingSkill] = useState(null); // To track the currently edited skill
+  const [editedSkill, setEditedSkill] = useState({}); // To store form data for editing
 
+
+  const navigate = useNavigate();
   // Get the user ID from session storage
   const userString = sessionStorage.getItem('user');
- 
-    const user = JSON.parse(userString);
-    const userId = user.id;
-    console.log("userId",userId);
-  
+
+  const user = JSON.parse(userString);
+  const userId = user.id;
+  // console.log("userId", userId);
+
+  const addNewSkillClickHandle = () => {
+    navigate('/create');
+  };
   useEffect(() => {
     if (!userId) {
       setError('User not logged in');
@@ -29,7 +37,7 @@ const MySkill = () => {
       })
       .then(data => {
         if (data && data.length) {
-          setSkills(data);
+          setSkills(data.filter(skill => !skill.isDeleted));
         } else {
           setError('No skills found for this user');
         }
@@ -41,7 +49,69 @@ const MySkill = () => {
         setLoading(false);
       });
   }, [userId]);
-  // Only run this effect when the userId changes
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/api/skills/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        // Optimistically update the UI to remove the skill
+        setSkills(skills.filter((skill) => skill.id !== id));
+
+        // Optionally, show a success message
+        alert('Skill deleted successfully');
+        navigate('/myskills');
+      })
+      .catch((err) => {
+        alert('Failed to delete skill: ' + err.message);
+      });
+  };
+
+
+  const handleEditClick = (skill) => {
+    setEditingSkill(skill._id);  // Set the skill ID for editing
+    setEditedSkill(skill);  // Populate form with current skill data
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;  // Get name and value from the input element
+    setEditedSkill({ ...editedSkill, [name]: value });  // Dynamically update the correct field of editedSkill
+  };
+
+
+  const handleSave = () => {
+    fetch(`http://localhost:5000/api/skills/${editingSkill}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(editedSkill),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((updatedSkill) => {
+        // Update the skills state with the updated skill
+        setSkills(
+          skills.map((skill) =>
+            skill._id === editingSkill ? updatedSkill : skill  // Match skill by _id
+          )
+        );
+        setEditingSkill(null);  // Exit edit mode
+      })
+      .catch((err) => {
+        alert('Failed to save skill: ' + err.message);
+      });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingSkill(null);  // Exit edit mode without saving
+  };
 
 
   return (
@@ -85,27 +155,16 @@ const MySkill = () => {
             </select>
           </div>
         </section>
-
-
         <br />
         <br />
       </div>
-
-
-
-
-
-
-
-
-
       <main class={skill.main_content}>
 
         <section class={skill.skills_section}>
           <div class={skill.section_header}>
             <h1 class={skill.section_title}>My Skills</h1>
             <p class={skill.section_description}>Manage your skill listings and view incoming requests</p>
-            <button class={skill.add_skill_btn}>+ Add New Skill</button>
+            <button class={skill.add_skill_btn} onClick={addNewSkillClickHandle}>+ Add New Skill</button>
           </div>
 
 
@@ -121,23 +180,81 @@ const MySkill = () => {
                 <tr>
                   <th>Title</th>
                   <th>Category</th>
+                  <th>Description</th>
+                  <th>Requirement</th>
                   <th>Duration (hours)</th>
                   <th>Status</th>
-                  <th>Pending Requests</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {skills.map((skillItem, index) => (
                   <tr key={index}>
-                    <td>{skillItem.name}</td>
-                    <td>{skillItem.category}</td>
+                    <td>
+                      {editingSkill === skillItem._id ? (
+                        <input
+                          type="text"
+                          name="name"  // Unique name for the name input
+                          value={editedSkill.name}  // Bind to editedSkill.name
+                          onChange={handleInputChange}  // Update the editedSkill state on change
+                        />
+                      ) : (
+                        skillItem.name
+                      )}
+                    </td>
+                    <td>
+                      {editingSkill === skillItem._id ? (
+                        <input
+                          type="text"
+                          name="category"  // Unique name for the category input
+                          value={editedSkill.category}  // Bind to editedSkill.category
+                          onChange={handleInputChange}  // Update the editedSkill state on change
+                        />
+                      ) : (
+                        skillItem.category
+                      )}
+                    </td>
+                    <td>
+                      {editingSkill === skillItem._id ? (
+                        <input
+                          type="text"
+                          name="description"  // Unique name for the description input
+                          value={editedSkill.description}  // Bind to editedSkill.description
+                          onChange={handleInputChange}  // Update the editedSkill state on change
+                        />
+                      ) : (
+                        skillItem.description
+                      )}
+                    </td>
+                    <td>{skillItem.requirements}</td>
                     <td>{skillItem.duration}</td>
                     <td><span className={skill.status_active}>ACTIVE</span></td>
-                    <td>{skillItem.pendingRequests} <span className={skill.notification_icon}>🔔</span></td>
                     <td>
-                      <button className={skill.edit_btn}>Edit</button>
-                      <button className={skill.delete_btn}>Delete</button>
+                      {editingSkill === skillItem._id ? (
+                        <>
+                          <button className={skill.save_btn} onClick={handleSave}>
+                            Save
+                          </button>
+                          <button className={skill.cancel_btn} onClick={handleCancelEdit}>
+                            Cancel
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            className={skill.edit_btn}
+                            onClick={() => handleEditClick(skillItem)}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className={skill.delete_btn}
+                            onClick={() => handleDelete(skillItem._id)}
+                          >
+                            Delete
+                          </button>
+                        </>
+                      )}
                     </td>
                   </tr>
                 ))}
