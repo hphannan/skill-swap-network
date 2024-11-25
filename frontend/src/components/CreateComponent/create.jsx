@@ -64,7 +64,7 @@ const MySkills = () => {
         <div className={skill.skill_navbar}>
           <img src="/images/logo.png" alt="Logo" className={skill.logo} />
           <ul>
-          <li> <a   href="">Home</a></li>
+          <li> <a   href="/">Home</a></li>
             <li> <a  className={skill.active}href="create">create skill listening</a></li>
             <li> <a href="myskill">My Skill </a></li>
             <li> <a href="swap">Skill swaps</a></li>
@@ -302,11 +302,7 @@ const MySkills = () => {
         </div>
         <div className={skill.skill_footer_col}>
           <h3>Newsletter</h3>
-          <p>You can trust us. We only send promo offers.</p>
-          <div className={skill.subscribe}>
-            <input type="text" placeholder="Your Email address" />
-            <a href="#" className={skill.yellow} >SUBSCRIBE</a>
-          </div>
+          
         </div>
         <div className={skill.skill_copyright}>
           <p>Copyright © 2023 | All Rights Reserved | This template is made by Eduquest.edu.pk</p>

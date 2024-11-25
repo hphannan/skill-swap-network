@@ -9,7 +9,7 @@ const contact = () => {
         <img src="/images/logo.png" alt="Logo" className={styleContact.logo} />
         <ul>
         
-        <li> <a  href="">Home</a></li>
+        <li> <a  href="/">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a  href="myskill">My Skill </a></li>
             <li> <a href="swap">Skill swaps</a></li>
@@ -118,11 +118,7 @@ const contact = () => {
     </div> 
     <div class={styleContact.footer_col}>
         <h3>Newsletter</h3>
-        <p>you can trust us. we only send promo offers,</p>
-        <div class={styleContact.subscribe}>
-            <input type="text" placeholder="Your Email address"/>
-            <a href="#" class={styleContact.yellow}>SUBSCRIBE</a>
-        </div>
+        
     </div>
     <div class={styleContact.copyright}>
 <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>

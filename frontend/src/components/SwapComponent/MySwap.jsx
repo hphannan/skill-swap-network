@@ -7,7 +7,7 @@ const MySwap = () => {
         <div class={swap.SWap_navbar}>
         <img src="/images/logo.png" alt="Logo" className={swap.logo} />
         <ul>
-        <li> <a   href="">Home</a></li>
+        <li> <a   href="/">Home</a></li>
             <li> <a  href="create">create skill listening</a></li>
             <li> <a href="myskill">My Skill </a></li>
             <li> <a  className={swap.active} href="swap">Skill swaps</a></li>
@@ -101,11 +101,7 @@ const MySwap = () => {
         </div> 
         <div class={swap.footer_col}>
             <h3>Newsletter</h3>
-            <p>you can trust us. we only send promo offers,</p>
-            <div class={swap.subscribe}>
-                <input type="text" placeholder="Your Email address"/>
-                <a href="#" class={swap.yellow}>SUBSCRIBE</a>
-            </div>
+            
         </div>
         <div class={swap.copyright}>
            <p>Copyright © 2023 |All Rights Reserved |This template is made by Eduquest.edu.pk</p>
