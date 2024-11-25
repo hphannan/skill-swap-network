@@ -64,14 +64,14 @@ const MySkills = () => {
         <div className={skill.skill_navbar}>
           <img src="/images/logo.png" alt="Logo" className={skill.logo} />
           <ul>
-            <li><a href="home">Home</a></li>
-            <li><a href="swap">Skill swaps</a></li>
-            <li><a className={skill.active} href="create">Create Skill Listing</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="suggest">Suggested People</a></li>
-            <li><a href="contact">Contact Us</a></li>
-            <li><a href="/user/profile">Profile</a></li>
-            <li><a href="login">Login/Signup</a></li>
+          <li> <a   href="">Home</a></li>
+            <li> <a  className={skill.active}href="create">create skill listening</a></li>
+            <li> <a href="myskill">My Skill </a></li>
+            <li> <a href="swap">Skill swaps</a></li>
+            <li> <a href="about">about us </a></li>
+            <li> <a href="contact">Contact us</a></li>
+            <li> <a href="/user/profile">Profile</a></li>
+            <li> <a href="login">Login/signup</a></li>
           </ul>
         </div>
         <div className={skill.skill_content}>

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // For navigation
+import pro from './UserProfile.module.css';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const userData = sessionStorage.getItem('user');
@@ -10,16 +13,30 @@ const Profile = () => {
     }
   }, []);
 
+  // Logout handler
+  const handleLogout = () => {
+    sessionStorage.removeItem('user'); // Remove user from sessionStorage
+    navigate('/login'); // Navigate to the login page
+  };
+
   if (!user) {
     return <p>Loading...</p>;
   }
-
   return (
-    <div>
-      <h1>Welcome, {user.name}</h1>
-      <p>Email: {user.email}</p>
-      <p>Skill: {user.skill}</p>
-      <p>age: {user?.age}</p>
+    
+    <div className={pro.user_profile }>
+     
+      <h1>Welcome  to swapify </h1>
+      <br/>
+      
+      <img src="/images/defult.jpg" alt="Profile Picture" class={pro.profile_pic}/>
+      <br />
+      <br /> 
+      <h3> User Name   :  {user.name}</h3>
+      <h3> Email  :  {user.email}</h3>
+      <h3>age    :  {user?.age}</h3>
+
+      <button className={pro.logout} onClick={handleLogout}>Logout</button>
     </div>
   );
 };

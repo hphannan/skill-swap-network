@@ -12,11 +12,11 @@ const Dashboard = () => {
               <img src="/images/logo.png" alt="Logo" className={dash.logo} />
         
             <ul>
-            <li> <a  className={dash.active} href="home">Home</a></li>
-            <li> <a href="swap">Skill swaps</a></li>
+            <li> <a  className={dash.active} href="">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
+            <li> <a href="myskill">My Skill </a></li>
+            <li> <a href="swap">Skill swaps</a></li>
             <li> <a href="about">about us </a></li>
-            <li> <a href="suggest"> suggested people</a></li>   
             <li> <a href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
             <li> <a href="login">Login/signup</a></li>
@@ -30,15 +30,17 @@ const Dashboard = () => {
            <p> Subcribe Easy Totorials YouYube Channel to Watch more Videos, press 
             the bell icon to get latest updates.  </p>
              <div>
-             <button type={dash.button}className={dash.detail_btn} ><a href='myskill'>My Skills</a></button>
-            <button type={dash.button} className={dash.detail_btn}><a href='detail'>Skill Details</a></button>
+                <br/>
+             <a class={dash.blue} href="myskill">My Skills</a>
+           
+             <a class={dash.blue} href="detail">Skill Details</a>
              </div> </div>
            </div>
 
 
            <section id={dash.features}>
         <h1>Awesome Features</h1>
-        <p>Replenish man have thing gathering lights yielding shall you </p>
+        <p>"Discover our awesome features that make skill exchange easy, secure, and collaborative."</p>
         <div class={dash.base}>
            <div class={dash.box}>
             <br/>
@@ -46,7 +48,7 @@ const Dashboard = () => {
            <br/>
            
              <h3>Cashless System</h3>
-             <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+             <p>"SkillSwap enables seamless skill exchanges through a cashless, digital system.</p>
              <br/>
            </div>
         
@@ -56,7 +58,7 @@ const Dashboard = () => {
            <br/>
            
            <h3>Foster collaboration</h3>
-           <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+           <p>"Foster collaboration by enabling easy, cashless skill exchanges."</p>
              <br/>
            </div>
             
@@ -66,7 +68,7 @@ const Dashboard = () => {
            <br/>
            
            <h3>Trusted Community</h3>
-           <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+           <p>"Building a trusted community for secure and reliable skill exchanges."</p>
              <br/>
            </div>
         </div>
