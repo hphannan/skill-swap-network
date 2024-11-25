@@ -3,6 +3,7 @@
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -103,8 +104,8 @@ body {
     margin: 40px auto;
     padding: 20px;
     
-    background: #fff;
-    border-radius: 8px;
+    background: #f9c4c4;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -142,7 +143,7 @@ body {
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
   textarea {
@@ -184,7 +185,9 @@ body {
     padding: 12px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    width: 70%;
+   position: relative;
+    border-radius: 20px;
     cursor: pointer;
   }
   
@@ -194,7 +197,7 @@ body {
   
   /* footer */
   footer{
-    background-image: linear-gradient(rgba(64, 50, 218, 0.3),rgba(15, 15, 19, 0.7) ),url(../images/back2.jpg);
+    background-image: linear-gradient(rgba(64, 50, 218, 0.3),rgba(15, 15, 19, 0.7) ),url(../images/back1.jpg);
     padding: 8vw;
     background-color: #101c32;
     display: flex;
