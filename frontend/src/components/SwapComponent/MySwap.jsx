@@ -54,7 +54,7 @@ const MySwap = () => {
         // Step 3: Make the API request to swap skills
         axios.post('http://localhost:5000/api/request', {
             requesterId: userId,  // User's ID (requester)
-            receiverId: selectedUserSkill.user,  // Receiver's ID (the user who is offering the skill)
+            receiverId: selectedSkill.user,  // Receiver's ID (the user who is offering the skill)
             skillOfferedId: selectedSkill._id,  // Skill offered by the user
             skillRequestedId: selectedUserSkill._id  // Skill requested from the other user
         })

@@ -34,7 +34,7 @@ router.post('/request', async (req, res) => {
         res.status(500).json({ message: 'Server error while processing the request.' });
     }
 });
-router.get('/:userId', async (req, res) => {
+router.get('/requests/:userId', async (req, res) => {
     const { userId } = req.params;
 
     try {
