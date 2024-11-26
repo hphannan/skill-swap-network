@@ -4,17 +4,58 @@ import { GiCash } from "react-icons/gi";
 import { FcCollaboration } from "react-icons/fc";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import dash from './Dashboard.module.css';
-
+import axios from 'axios';
 const Dashboard = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [skills, setSkills] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         // Check if user object exists in sessionStorage
         const userString = sessionStorage.getItem('user');
         setIsLoggedIn(!!userString); // Update state based on presence of user object
+
+        const fetchSkills = async () => {
+            try {
+                const response = await axios.get("http://localhost:5000/api/skills", {
+                    // You can send any data required by your API in this object
+                });
+                setSkills(response.data); // Assuming the API returns an array of skill objects
+            } catch (error) {
+                console.error("Error fetching skills data:", error);
+            }
+        };
+        fetchSkills();
     }, []);
 
+    const formatDate = (isoDate) => {
+        const date = new Date(isoDate);
+
+        // Extract day, month, and year
+        const day = String(date.getDate()).padStart(2, "0");
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const year = date.getFullYear();
+
+        // Extract hours, minutes, and AM/PM
+        let hours = date.getHours();
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+
+        // Return JSX with line breaks
+        return (
+            <>
+                Updated <br />
+                Date: {day}/{month}/{year} <br />
+                Time: {hours}:{minutes} {ampm}
+            </>
+        );
+    };
+
+
+    const handleSwapButton = (skill) => {
+        navigate("/swap", { state: { selectedSkill: skill } });
+    };
     const handleAuthButtonClick = () => {
         if (isLoggedIn) {
             // Logout logic: remove user from sessionStorage
@@ -106,105 +147,29 @@ const Dashboard = () => {
                     Facilitates collaboration and learning without monetary
                     transactions.
                     Encourages a community-driven approach to skill-building. </p>
-                <div class={dash.course_box}>
+                <div className={dash.course_box}>
 
-                    <div class={dash.courses}>
-                        <img src='/images/skill8.jpg' />
-                        <div class={dash.details}>
-                            <span>Updated 21/8/21</span>
-                            <h6>Subject knowledge Skill</h6>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(239)</span>
+                    {skills.map((skill, index) => (
+                        <div className={dash.courses} key={index}>
+                            <img
+                                className={dash.skill_img}
+                                src={skill.image || "/images/img3.jpg"}
+                                alt={skill.name}
+                            />
+                            <div className={dash.details}>
+                                <span>{skill.updatedAt ? formatDate(skill.updatedAt) : " "}</span>
+                                <h6>{skill.name}</h6>
+                                <p>{skill.description}</p>
+                                <div className={dash.star}>
+                                    <span>({skill.duration || 0})</span>
+                                </div>
+                                <button className={dash.swap_button} onClick={() => handleSwapButton(skill)}>Press to swap with</button>
                             </div>
                         </div>
-
-                    </div>
-                    <div class={dash.courses}>
-                        <img src="/images/skill6.jpg" alt="images" />
-                        <div class={dash.details}>
-                            <span>Updated 21/8/21</span>
-                            <h6>Computer  Networking Skills</h6>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(239)</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class={dash.courses}>
-                        <img src="/images/skill2.png" alt="" />
-                        <div class={dash.details}>
-                            <span>Updated 21/8/21</span>
-                            <h6> Computer Language Skills</h6>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(239)</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class={dash.courses}>
-                        <img src="/images/skill3.WEBP" alt="" />
-                        <div class={dash.details}>
-                            <span>Updated 21/8/21</span>
-                            <h6>Communication Skill</h6>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(239)</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class={dash.courses}>
-                        <img src="/images/skill4.jpg" alt="" />
-                        <div class={dash.details}>
-                            <span>Updated 21/8/21</span>
-                            <h6>Website Development Skills </h6>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(239)</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class={dash.courses}>
-                        <img src="/images/skill5.jpg" alt="" />
-                        <div class={dash.details}>
-                            <span>Updated 21/8/21</span>
-                            <h6>Amzon Cloud computing Skill</h6>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(239)</span>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
 
                 </div>
+
                 <br />
                 <br />
                 <br />
