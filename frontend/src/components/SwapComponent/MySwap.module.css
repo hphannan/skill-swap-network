@@ -13,41 +13,47 @@ body {
 }
 
 
-.SWap_banner{
+.SWap_banner {
     width: 100%;
     height: 60vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images/4.jpeg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../images/4.jpeg);
     background-size: cover;
     background-position: center;
 }
-.SWap_navbar{
+
+.SWap_navbar {
     width: 85%;
     margin: auto;
     padding: 35px 0;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     width: 101vw;
 }
-.logo{
+
+.logo {
     width: 170px;
-    cursor:pointer
+    cursor: pointer
 }
-.SWap_navbar ul li{
+
+.SWap_navbar ul li {
     list-style: none;
     display: inline-block;
     margin: 0 20px;
     position: relative;
 }
-.SWap_navbar ul li a{
+
+.SWap_navbar ul li a {
     text-decoration: none;
-    color:#fff;
+    color: #fff;
     text-transform: uppercase;
 }
-.SWap_navbar ul i{
+
+.SWap_navbar ul i {
     color: #fff;
 }
-.SWap_navbar ul li::after{
+
+.SWap_navbar ul li::after {
     content: '';
     height: 3px;
     width: 0;
@@ -56,16 +62,19 @@ body {
     left: 0;
     bottom: -10px;
     transition: 0.5s;
-} 
-.SWap_navbar ul li:hover::after{
+}
+
+.SWap_navbar ul li:hover::after {
     width: 100%;
 }
+
 .SWap_navbar ul li a.active,
-.SWap_navbar ul li a:hover{
+.SWap_navbar ul li a:hover {
     color: #fdc93b;
 
 }
-.SWap_content{
+
+.SWap_content {
     width: 100%;
     position: absolute;
     top: 30%;
@@ -73,17 +82,20 @@ body {
     text-align: center;
     color: #fff;
 }
-.SWap_content h1{
+
+.SWap_content h1 {
     font-size: 50px;
     color: #f0f0f0;
     margin-top: 80px;
 }
+
 .SWap_content p {
-    margin:  20px auto;
-    font-weight:100;
-     line-height: 25px;
-   }
-   .SWap_navbar{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+.SWap_navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -98,7 +110,61 @@ body {
 
 
 
-
+.swap_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .swap_card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+    box-sizing: border-box;
+  }
+  
+  .swap_details {
+    margin-bottom: 20px;
+  }
+  
+  .swap_button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .swap_button:hover {
+    background-color: #218838;
+  }
+  
+  .Swap_navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+  }
+  
+  .Swap_navbar ul {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .Swap_navbar li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .Swap_navbar li a:hover {
+    text-decoration: underline;
+  }
+  
+  .Swap_content {
+    padding: 20px;
+  }
+  
 
 
 .SWap_contain {
@@ -167,6 +233,7 @@ body {
     background-color: #ff4c4c;
     color: white;
 }
+
 .view_btn {
     padding: 8px 15px;
     border: none;
@@ -197,9 +264,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 /* footer */
-footer{
-    background-image: linear-gradient(rgba(64, 50, 218, 0.3),rgba(15, 15, 19, 0.7) ),url(../images/back1.jpg);
+footer {
+    background-image: linear-gradient(rgba(64, 50, 218, 0.3), rgba(15, 15, 19, 0.7)), url(../images/back1.jpg);
     padding: 8vw;
     background-color: #101c32;
     display: flex;
@@ -208,17 +276,18 @@ footer{
     flex-wrap: wrap;
     width: 100vw;
 }
-footer .footer_col{
+
+footer .footer_col {
     padding-bottom: 40px;
 }
 
-footer h3{
-     color: #fff;
-     font-weight: 600;
-     padding-bottom: 20px;
+footer h3 {
+    color: #fff;
+    font-weight: 600;
+    padding-bottom: 20px;
 }
 
-footer li{
+footer li {
     list-style: none;
     color: #fff;
     padding: 10px 0;
@@ -227,17 +296,19 @@ footer li{
     transition: 0.3s ease;
 }
 
-footer li:hover{
-    color: rgb(247, 215, 5);
-}
-footer p{
+footer li:hover {
     color: rgb(247, 215, 5);
 }
 
-footer .subscribe{
+footer p {
+    color: rgb(247, 215, 5);
+}
+
+footer .subscribe {
     margin-top: 20px;
 }
-footer input{
+
+footer input {
     width: 220px;
     padding: 15px 12px;
     background: #fff;
@@ -247,7 +318,7 @@ footer input{
     border-radius: 5px;
 }
 
-footer .subscribe a{
+footer .subscribe a {
     text-decoration: none;
     font-size: 0.9rem;
     padding: 12px 15px;
@@ -256,21 +327,21 @@ footer .subscribe a{
 }
 
 
-footer .subscribe a.yellow{
+footer .subscribe a.yellow {
     color: #2c2c2c;
-    background-color:#fdc93b;
+    background-color: #fdc93b;
     transition: 0.3s ease;
     border-radius: 5px;
     padding: 14px;
 
 }
 
-footer .subscribe a.yellow:hover{
-    color:rgb(21, 21, 100);
-    background-color: blue;      
+footer .subscribe a.yellow:hover {
+    color: rgb(21, 21, 100);
+    background-color: blue;
 }
 
-footer .copyright{
+footer .copyright {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -279,21 +350,48 @@ footer .copyright{
     flex-wrap: wrap;
 }
 
-footer .copyright p{ 
+footer .copyright p {
     color: #fff;
 
 }
-footer .copyright .pro_links{
+
+footer .copyright .pro_links {
     margin-top: 0px;
 
 }
 
-footer .copyright .pro_links i{
+footer .copyright .pro_links i {
     background-color: #5f7185;
     color: #fff;
 }
 
-footer .copyright .pro_links i:hover{
+footer .copyright .pro_links i:hover {
     background-color: #fdc93b;
     color: #2c2c2c;
+}
+.successModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.closeButton {
+    background-color: white;
+    color: #28a745;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.closeButton:hover {
+    background-color: #e8f5e9;
 }

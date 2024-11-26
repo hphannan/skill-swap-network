@@ -2,19 +2,51 @@ const express = require('express');
 const router = express.Router();
 const SkillExchangeRequest = require('../models/SkillExchangeRequest'); // Adjust path as needed
 const authMiddleware = require('../middleware/authMiddleware');
+const User =  require('../models/User.js')
+const Skill =  require('../models/Skill.js')
 // POST /api/requests - Create a skill exchange request
-router.post('/requests', async (req, res) => {
+router.post('/request', async (req, res) => {
+    const { requesterId, receiverId, skillOfferedId, skillRequestedId } = req.body;
     try {
-        const { requester, receiver, skillOffered, skillRequested } = req.body;
-        const newRequest = await SkillExchangeRequest.create({
-            requester,
-            receiver,
-            skillOffered,
-            skillRequested,
+        // Validate and check if users and skills exist
+        const requester = await User.findById(requesterId);
+        const receiver = await User.findById(receiverId);
+        const skillOffered = await Skill.findById(skillOfferedId);
+        const skillRequested = await Skill.findById(skillRequestedId);
+
+        if (!requester || !receiver || !skillOffered || !skillRequested) {
+            return res.status(400).json({ message: 'Invalid data provided.' });
+        }
+
+        // Create the skill exchange request
+        const newExchangeRequest = new SkillExchangeRequest({
+            requester: requesterId,
+            receiver: receiverId,
+            skillOffered: skillOfferedId,
+            skillRequested: skillRequestedId,
         });
-        res.status(201).json(newRequest);
+
+        // Save the exchange request in the database
+        await newExchangeRequest.save();
+        res.status(201).json({ message: 'Skill exchange request created successfully.' });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Error creating exchange request:', error);
+        res.status(500).json({ message: 'Server error while processing the request.' });
+    }
+});
+router.get('/:userId', async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const exchangeRequests = await SkillExchangeRequest.find({
+            $or: [{ requester: userId }, { receiver: userId }],
+        })
+            .populate('requester receiver skillOffered skillRequested');
+
+        res.json(exchangeRequests);
+    } catch (error) {
+        console.error('Error fetching exchange requests:', error);
+        res.status(500).json({ message: 'Server error while fetching requests.' });
     }
 });
 
