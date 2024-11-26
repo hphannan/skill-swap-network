@@ -1,0 +1,66 @@
+.page {
+  padding: 20px;
+  background-color: #282c34; /* Dark background for better contrast */
+  color: white; /* Default text color for the page */
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white; /* Ensure the heading is visible */
+}
+
+.noRequests {
+  font-size: 1.2rem;
+  color: white; /* Text color for "No requests" message */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #333; /* Dark background for the table */
+}
+
+.table th,
+.table td {
+  border: 1px solid #555; /* Light border for separation */
+  padding: 10px;
+  text-align: left;
+  color: white; /* White text for visibility */
+}
+
+.table th {
+  background-color: #444; /* Slightly lighter background for table header */
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: #555; /* Highlight rows on hover */
+}
+
+.acceptButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.acceptButton:hover {
+  background-color: #218838;
+}
+
+.declineButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.declineButton:hover {
+  background-color: #c82333;
+}

@@ -54,7 +54,8 @@ router.post('/skills', async (req, res) => {
 });
 
 router.get('/skills/:id', async (req, res) => {
-    const userId = req.params.id; try {
+    const userId = req.params.id;
+    try {
         const user = await User.findById(userId).populate('skills');
         if (!user || !user.skills) { return res.status(404).json({ message: 'Skills not found' }); } res.json(user.skills);
     } catch (error) {
@@ -65,7 +66,7 @@ router.get('/skills/:id', async (req, res) => {
 // Route to get all skills
 router.get('/skills', async (req, res) => {
     try {
-        const skills = await Skill.find();
+        const skills = await Skill.find().populate('user', 'name'); // Populate 'user' field with 'name'
         res.status(200).json(skills);
     } catch (error) {
         res.status(500).json({
@@ -74,6 +75,7 @@ router.get('/skills', async (req, res) => {
         });
     }
 });
+
 
 // Route to update a skill by ID
 router.put('/skills/:id', async (req, res) => {

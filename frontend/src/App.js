@@ -7,7 +7,7 @@ import UserComponent from './components/UserComponent/UserProfile';
 
 import SkillsTrade from './components/Skill_ListingsComponent/SkillsTradePage';
 import Functionality from './components/functionalityComponent/SkillsPage';
-import SkillDetail from './components/SkillDetailComponent/SkillDetailPage';
+import SwapRequest from './components/SwapRequestsComponent/SwapRequestsPage.jsx';
 
 import Home from './components/HomeComponent/Dashboard';
 import About from './components/AboutComponent/About';
@@ -35,7 +35,7 @@ function App() {
           <Route path="/user/profile" element={<ProtectedRoute><UserComponent /></ProtectedRoute>} />
           <Route path="/skill-listings" element={<SkillsTrade />} />
           <Route path="/search-functionality " element={<Functionality />} />
-          <Route path="/skill-detail " element={<SkillDetail/>} />        
+          <Route path="/myswaps" element={<SwapRequest/>} />        
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<ContactUs/>} />          
           <Route path="/create" element={<Create/>} />   

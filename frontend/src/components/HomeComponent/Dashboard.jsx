@@ -148,7 +148,6 @@ const Dashboard = () => {
                     transactions.
                     Encourages a community-driven approach to skill-building. </p>
                 <div className={dash.course_box}>
-
                     {skills.map((skill, index) => (
                         <div className={dash.courses} key={index}>
                             <img
@@ -160,15 +159,24 @@ const Dashboard = () => {
                                 <span>{skill.updatedAt ? formatDate(skill.updatedAt) : " "}</span>
                                 <h6>{skill.name}</h6>
                                 <p>{skill.description}</p>
+                                <p>
+                                    <strong>Offered by: </strong>
+                                    {skill.user?.name || "Unknown"}
+                                </p>
                                 <div className={dash.star}>
                                     <span>({skill.duration || 0})</span>
                                 </div>
-                                <button className={dash.swap_button} onClick={() => handleSwapButton(skill)}>Press to swap with</button>
+                                <button
+                                    className={dash.swap_button}
+                                    onClick={() => handleSwapButton(skill)}
+                                >
+                                    Press to swap with
+                                </button>
                             </div>
                         </div>
                     ))}
-
                 </div>
+
 
                 <br />
                 <br />
