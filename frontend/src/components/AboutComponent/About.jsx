@@ -60,7 +60,7 @@ const About = () => {
  
  <section id={style.features}>
         <h1>Awesome Features</h1>
-        <p>Replenish man have thing gathering lights yielding shall you </p>
+        <p>"Discover our awesome features that make skill exchange easy, secure, and collaborative." </p>
         <div class={style.base}>
            <div class={style.box}>
             <br/>
@@ -68,7 +68,7 @@ const About = () => {
            <br/>
            
              <h3>Cashless System</h3>
-             <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+             <p>"SkillSwap enables seamless skill exchanges through a cashless, digital system.</p>
              <br/>
            </div>
         
@@ -78,7 +78,7 @@ const About = () => {
            <br/>
            
            <h3>Foster collaboration</h3>
-           <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+           <p>"Foster collaboration by enabling easy, cashless skill exchanges."</p>
              <br/>
            </div>
             
@@ -88,7 +88,7 @@ const About = () => {
            <br/>
            
            <h3>Trusted Community</h3>
-           <p>One make creepeth, man bearing theira firmament won't great heaven</p>
+           <p>"Building a trusted community for secure and reliable skill exchanges."</p>
              <br/>
            </div>
         </div>

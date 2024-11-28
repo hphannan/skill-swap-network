@@ -111,7 +111,7 @@ const Dashboard = () => {
                         <br />
 
                         <h3>Cashless System</h3>
-                        <p>"SkillSwap enables seamless skill exchanges through a cashless, digital system.</p>
+                        <p>"SkillSwap enables seamless skill exchanges through a cashless, digital system.</p>
                         <br />
                     </div>
 
