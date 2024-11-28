@@ -86,7 +86,6 @@ const Dashboard = () => {
                         <br />
                         <a class={dash.blue} href="myskill">My Skills</a>
 
-                        <a class={dash.blue} href="detail">Skill Details</a>
                     </div> </div>
             </div>
 
