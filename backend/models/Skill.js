@@ -33,6 +33,7 @@ const SkillSchema = new mongoose.Schema({
             },
         },
     ],
+    image: { type: String, required: true }, 
     isDeleted: { type: Boolean, default: false }, 
     user: {
         type: mongoose.Schema.Types.ObjectId,
