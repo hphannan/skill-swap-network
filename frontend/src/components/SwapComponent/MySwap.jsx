@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate } from "react-router-dom";
 import swap from "./MySwap.module.css";
 import axios from "axios";
 const MySwap = () => {
@@ -10,7 +10,8 @@ const MySwap = () => {
   const [error, setError] = useState(null);
   const [swapStatus, setSwapStatus] = useState("");
   const [successMessage, setSuccessMessage] = useState(null);
-
+  const navigate = useNavigate(); // Initialize the hook
+  
   useEffect(() => {
     const userId = JSON.parse(sessionStorage.getItem("user"))?.id;
     if (userId) {
@@ -42,6 +43,11 @@ const MySwap = () => {
   if (error) {
     return <p>{error}</p>;
   }
+
+
+  const handleClick = () => {
+    navigate('/myswaps'); // Navigate to the /myswaps page
+  };
   const handleSwap = (selectedUserSkill) => {
     const userId = JSON.parse(sessionStorage.getItem("user"))?.id;
 
@@ -109,7 +115,13 @@ const MySwap = () => {
 
         <div class={swap.swap_content}>
           <h1> My Swap </h1>
-        </div>
+       
+
+           <button class={swap.btn}  onClick={handleClick}>
+              <span class={swap.btn_text_one}>Trade </span>
+             <span class={swap.btn_text_two}>your skills</span>
+             </button>
+                    </div>
       </div>
 
       <div className={swap.swapcontainer}>

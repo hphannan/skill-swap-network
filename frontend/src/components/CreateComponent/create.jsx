@@ -326,11 +326,7 @@ const MySkills = () => {
         </div>
         <div className={skill.skill_copyright}>
           <p>Copyright © 2023 | All Rights Reserved | This template is made by Eduquest.edu.pk</p>
-          <div className={skill.pro_links}>
-            <i className="fab fa-facebook-f"></i>
-            <i className="fab fa-instagram"></i>
-            <i className="fab fa-linkedin-in"></i>
-          </div>
+        
         </div>
       </footer>
     </div>
