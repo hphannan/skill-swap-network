@@ -83,7 +83,6 @@ const MySkills = () => {
             <li> <a href="about">about us </a></li>
             <li> <a href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
-            <li> <a href="#" onClick={() => handleAuth({ isLoggedIn, setIsLoggedIn, navigate })}>{isLoggedIn ? 'Logout' : 'Login/Signup'}</a></li>
           </ul>
         </div>
         <div className={skill.skill_content}>

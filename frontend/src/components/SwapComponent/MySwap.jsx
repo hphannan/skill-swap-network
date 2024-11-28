@@ -107,9 +107,6 @@ const MySwap = () => {
             <li>
               <a href="/user/profile">Profile</a>
             </li>
-            <li>
-              <a href="login">Login/Signup</a>
-            </li>
           </ul>
         </div>
 
@@ -118,8 +115,8 @@ const MySwap = () => {
        
 
            <button class={swap.btn}  onClick={handleClick}>
-              <span class={swap.btn_text_one}>Trade </span>
-             <span class={swap.btn_text_two}>your skills</span>
+              <span class={swap.btn_text_one}>My Swaps</span>
+             <span class={swap.btn_text_two}>My Swaps</span>
              </button>
                     </div>
       </div>

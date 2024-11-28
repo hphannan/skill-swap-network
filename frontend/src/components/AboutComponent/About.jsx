@@ -20,7 +20,6 @@ const About = () => {
             <li> <a className={style.active} href="about">about us </a></li>
             <li> <a href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
-            <li> <a href="login">Login/signup</a></li>
            
         </ul>
         </div>

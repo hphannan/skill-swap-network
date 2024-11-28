@@ -1,9 +1,18 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
-const ProtectedRoute = ({ children }) => {
-  const user = sessionStorage.getItem('user');
-  return user ? children : <Navigate to="/login" />;
+// ProtectedRoute Component
+const ProtectedRoute = () => {
+  const user = JSON.parse(sessionStorage.getItem('user'));
+
+  console.log(user);
+  // If user is not logged in, redirect to login page
+  if (!user || !user.id) {
+    return <Navigate to="/login" />;
+  }
+
+  // If user is logged in, render the requested page
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

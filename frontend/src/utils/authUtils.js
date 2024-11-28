@@ -4,7 +4,7 @@
 export const getUserIdFromSession = () => {
     const userData = sessionStorage.getItem('user');  // Retrieve user data from sessionStorage
     if (!userData) {
-      alert('User is not logged in!');
+      // alert('User is not logged in!');
       return null;  // Return null if user is not found
     }
   

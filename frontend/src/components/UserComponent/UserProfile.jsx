@@ -18,6 +18,9 @@ const Profile = () => {
     sessionStorage.removeItem('user'); // Remove user from sessionStorage
     navigate('/login'); // Navigate to the login page
   };
+  const handleGoBack = () => {
+    navigate('/'); // Navigate to the login page
+  };
 
   if (!user) {
     return <p>Loading...</p>;
@@ -28,6 +31,7 @@ const Profile = () => {
      
       <h1>Welcome  to swapify </h1>
       <br/>
+
       
       <img src="/images/defult.jpg" alt="Profile Picture" class={pro.profile_pic}/>
       <br />
@@ -35,8 +39,10 @@ const Profile = () => {
       <h3> User Name   :  {user.name}</h3>
       <h3> Email  :  {user.email}</h3>
       <h3>age    :  {user?.age}</h3>
+      <br />
 
       <button className={pro.logout} onClick={handleLogout}>Logout</button>
+      <button className={pro.go_back} onClick={handleGoBack}>← Go Back</button>
     </div>
   );
 };
