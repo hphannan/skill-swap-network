@@ -58,7 +58,7 @@
 .a_navbar{
         position: fixed;
         top: 0;
-        width: 100%;
+        width: 101%;
         display: flex;
         justify-content: space-between;
         padding: 20px;

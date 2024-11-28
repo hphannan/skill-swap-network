@@ -64,3 +64,158 @@
 .declineButton:hover {
   background-color: #c82333;
 }
+
+/* General styles for the page */
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.noRequests {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Table container */
+.tableContainer {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.swapTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swapTable th,
+.swapTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.swapTable th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.swapTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button styles */
+.acceptBtn,
+.declineBtn {
+  padding: 8px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.acceptBtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.acceptBtn:hover {
+  background-color: #45a049;
+}
+
+.declineBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+.declineBtn:hover {
+  background-color: #e53935;
+}
+
+/* Waiting message style */
+.waitingMsg {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pageBtn {
+  padding: 8px 15px;
+  margin: 0 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pageBtn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pageNumber {
+  font-size: 1rem;
+  color: #333;
+}
+/* Style for the response message */
+.responseMsg {
+  color: green;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Style for the waiting message */
+.waitingMsg {
+  color: orange;
+  font-size: 14px;
+  font-weight: normal;
+}
+.responseMsgDeclined {
+  color: red; /* Set the color to red for declined message */
+  font-weight: bold;
+  font-size: 14px;
+}
+.go_back {
+  background: linear-gradient(140.14deg, #ec0e0e 15.05%, #ec0e0e 114.99%) padding-box, linear-gradient(142.51deg, #ec0e0e 8.65%, #af1905 88.82%) border-box;
+    border-radius: 28px;
+    border: 2px solid transparent;
+    text-shadow: 1px 1px 1px #00000040;
+    box-shadow: 8px 8px 20px 0px #45090059;
+    padding: 14px 28px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    top: 3rem;
+}
+
+.go_back:hover {
+  box-shadow: none;
+  opacity: 80%;
+}
