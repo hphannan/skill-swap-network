@@ -95,18 +95,25 @@ const SwapRequestsPage = () => {
                 <td>
                   {request.status === 'pending' && (
                     <>
-                      <button
-                        onClick={() => handleAccept(request._id)}
-                        className={swap.acceptButton}
-                      >
-                        Accept
-                      </button>
-                      <button
-                        onClick={() => handleDecline(request._id)}
-                        className={swap.declineButton}
-                      >
-                        Decline
-                      </button>
+                      {/* Check if the current user is the requester */}
+                      {request.requester._id === JSON.parse(sessionStorage.getItem('user')).id ? (
+                        <span>Waiting for the response from the user you requested</span>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => handleAccept(request._id)}
+                            className={swap.acceptButton}
+                          >
+                            Accept
+                          </button>
+                          <button
+                            onClick={() => handleDecline(request._id)}
+                            className={swap.declineButton}
+                          >
+                            Decline
+                          </button>
+                        </>
+                      )}
                     </>
                   )}
                 </td>
