@@ -13,3 +13,16 @@ export const getUserIdFromSession = () => {
     return userId;
   };
   
+  // authUtils.js
+export const handleAuth = ({ isLoggedIn, setIsLoggedIn, navigate }) => {
+  if (isLoggedIn) {
+    // Logout logic
+    sessionStorage.removeItem('user');
+    setIsLoggedIn(false);
+    alert('You have been logged out.');
+    navigate('/login');
+  } else {
+    // Navigate to login/signup page
+    navigate('/login');
+  }
+};

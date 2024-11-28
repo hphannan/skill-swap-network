@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import skill from './create.module.css';
+import { useNavigate } from 'react-router-dom';
 import trackUserAction from '../../utils/trackUserAction.js';
-import { getUserIdFromSession } from '../../utils/authUtils.js'
+import { getUserIdFromSession,handleAuth } from '../../utils/authUtils.js'
 import axios from 'axios';
 
 const MySkills = () => {
 
-  const userId = getUserIdFromSession() || ""; 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const userId = getUserIdFromSession() || "";
   const [isCreated, setIsCreated] = useState(false);
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -16,7 +18,8 @@ const MySkills = () => {
     duration: '',
     requirements: '',
     availability: [],
-    user: userId
+    user: userId,
+    image:''
   });
 
   const handleChange = (e) => {
@@ -26,16 +29,24 @@ const MySkills = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/skills",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      // Create FormData and append all fields
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("description", formData.description);
+      data.append("category", formData.category);
+      data.append("duration", formData.duration);
+      data.append("requirements", formData.requirements);
+      data.append("user", formData.user);
+      data.append("availability", JSON.stringify(formData.availability));
+      data.append("image", formData.image); // Append the image file
+
+      const response = await axios.post("http://localhost:5000/api/skills", data, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Set proper content type for file uploads
+        },
+      });
 
       console.log("Skill created:", response.data);
 
@@ -58,20 +69,21 @@ const MySkills = () => {
   };
 
 
+
   return (
     <div>
       <div className={skill.skill_banner}>
         <div className={skill.skill_navbar}>
           <img src="/images/logo.png" alt="Logo" className={skill.logo} />
           <ul>
-          <li> <a   href="/">Home</a></li>
-            <li> <a  className={skill.active}href="create">create skill listening</a></li>
+            <li> <a href="/">Home</a></li>
+            <li> <a className={skill.active} href="create">create skill listening</a></li>
             <li> <a href="myskill">My Skill </a></li>
             <li> <a href="swap">Skill swaps</a></li>
             <li> <a href="about">about us </a></li>
             <li> <a href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
-            <li> <a href="login">Login/signup</a></li>
+            <li> <a href="#" onClick={() => handleAuth({ isLoggedIn, setIsLoggedIn, navigate })}>{isLoggedIn ? 'Logout' : 'Login/Signup'}</a></li>
           </ul>
         </div>
         <div className={skill.skill_content}>
@@ -260,6 +272,14 @@ const MySkills = () => {
               ))}
             </div>
           </div>
+          <div className={skill.form_group}>
+            <label htmlFor="image">* Upload Gig Image</label>
+            <input
+              type="file"
+              id="image"
+              onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+            />
+          </div>
 
           <button type="submit" class={skill.submit_button}>📝 Create Skill Listing</button>
           {isCreated && (
@@ -302,7 +322,7 @@ const MySkills = () => {
         </div>
         <div className={skill.skill_footer_col}>
           <h3>Newsletter</h3>
-          
+
         </div>
         <div className={skill.skill_copyright}>
           <p>Copyright © 2023 | All Rights Reserved | This template is made by Eduquest.edu.pk</p>

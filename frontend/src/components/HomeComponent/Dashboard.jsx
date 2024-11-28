@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GiCash } from "react-icons/gi";
 import { FcCollaboration } from "react-icons/fc";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
+import { handleAuth } from '../../utils/authUtils'
 import dash from './Dashboard.module.css';
 import axios from 'axios';
 const Dashboard = () => {
@@ -56,18 +57,7 @@ const Dashboard = () => {
     const handleSwapButton = (skill) => {
         navigate("/swap", { state: { selectedSkill: skill } });
     };
-    const handleAuthButtonClick = () => {
-        if (isLoggedIn) {
-            // Logout logic: remove user from sessionStorage
-            sessionStorage.removeItem('user');
-            setIsLoggedIn(false); // Update state
-            alert('You have been logged out.');
-            navigate('/login'); // Redirect to login page
-        } else {
-            // Navigate to login/signup page
-            navigate('/login');
-        }
-    };
+
     return (
         <div >
             <div class={dash.banner}>
@@ -82,7 +72,7 @@ const Dashboard = () => {
                         <li> <a href="about">about us </a></li>
                         <li> <a href="contact">Contact us</a></li>
                         <li> <a href="/user/profile">Profile</a></li>
-                        <li> <a href="#" onClick={handleAuthButtonClick}>{isLoggedIn ? 'Logout' : 'Login/Signup'}</a></li>
+                        <li> <a href="#" onClick={() => handleAuth({ isLoggedIn, setIsLoggedIn, navigate })}>{isLoggedIn ? 'Logout' : 'Login/Signup'}</a></li>
 
                     </ul>
                 </div>
@@ -152,8 +142,9 @@ const Dashboard = () => {
                         <div className={dash.courses} key={index}>
                             <img
                                 className={dash.skill_img}
-                                src={skill.image || "/images/img3.jpg"}
+                                src={`http://localhost:5000/${skill.image}`} // Dynamically fetch the image
                                 alt={skill.name}
+                                onError={(e) => (e.target.src = "/images/default.jpg")} // Fallback to default image if error
                             />
                             <div className={dash.details}>
                                 <span>{skill.updatedAt ? formatDate(skill.updatedAt) : " "}</span>
@@ -176,6 +167,7 @@ const Dashboard = () => {
                         </div>
                     ))}
                 </div>
+
 
 
                 <br />
