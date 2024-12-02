@@ -48,28 +48,47 @@ router.post('/skills', upload.single('image'), async (req, res) => {
     }
   });
 
-router.get('/skills/:id', async (req, res) => {
+  router.get('/skills/:id', async (req, res) => {
     const userId = req.params.id;
     try {
-        const user = await User.findById(userId).populate('skills');
-        if (!user || !user.skills) { return res.status(404).json({ message: 'Skills not found' }); } res.json(user.skills);
+        // Find the user by ID and populate their skills
+        const user = await User.findById(userId).populate({
+            path: 'skills',
+            match: { isDeleted: false } // Only include skills where isDeleted is false
+        });
+
+        // Check if the user or their skills were not found
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        if (!user.skills || user.skills.length === 0) {
+            return res.status(404).json({ message: 'No active skills found' });
+        }
+
+        // Respond with the filtered skills
+        res.json(user.skills);
     } catch (error) {
-        console.error("Error fetching skills:", error);
+        console.error('Error fetching skills:', error);
         res.status(500).json({ message: 'Server error' });
     }
 });
 // Route to get all skills
 router.get('/skills', async (req, res) => {
-    try {
-        const skills = await Skill.find().populate('user', 'name'); // Populate 'user' field with 'name'
-        res.status(200).json(skills);
-    } catch (error) {
-        res.status(500).json({
-            message: 'Server error',
-            error: error.message,
-        });
-    }
+  try {
+      // Find skills where isDeleted is false and populate the user field
+      const skills = await Skill.find({ isDeleted: false }).populate('user', 'name');
+      
+      // Respond with the filtered skills
+      res.status(200).json(skills);
+  } catch (error) {
+      console.error('Error fetching skills:', error);
+      res.status(500).json({
+          message: 'Server error',
+          error: error.message,
+      });
+  }
 });
+
 
 router.put('/skills/:id', async (req, res) => {
     const { id } = req.params;

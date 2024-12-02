@@ -94,7 +94,7 @@ const MySwap = () => {
               <a href="myskill">My Skills</a>
             </li>
             <li>
-              <a href="swap" className={swap.active}>
+              <a href="myswaps" className={swap.active}>
                 Skill Swaps
               </a>
             </li>

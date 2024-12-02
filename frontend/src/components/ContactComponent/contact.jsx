@@ -12,7 +12,7 @@ const contact = () => {
         <li> <a  href="/">Home</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a  href="myskill">My Skill </a></li>
-            <li> <a href="swap">Skill swaps</a></li>
+            <li> <a href="myswaps">Skill swaps</a></li>
             <li> <a href="about">about us </a></li>
             <li> <a className={styleContact.active} href="contact">Contact us</a></li>
             <li> <a href="/user/profile">Profile</a></li>
