@@ -10,7 +10,7 @@ const Suggested = () => {
             
          
             <li> <a   href="home">Home</a></li>
-            <li> <a href="">Skill swaps</a></li>
+            <li> <a href="myswaps">Skill swaps</a></li>
             <li> <a href="create">create skill listening</a></li>
             <li> <a href="about">about us </a></li>
             <li> <a className={sug.active}href="suggest"> suggested people</a></li>   
